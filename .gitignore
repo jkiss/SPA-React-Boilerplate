@@ -1,0 +1,21 @@
+# official ignore
+node_modules/
+.*.swp
+._*
+.DS_Store
+.git
+.hg
+.npmrc
+.lock-wscript
+.svn
+.wafpickle-*
+config.gypi
+CVS
+npm-debug.log
+
+# Custom
+build/
+.idea/
+npm-debug.log.*
+package-lock.json
+.vscode/

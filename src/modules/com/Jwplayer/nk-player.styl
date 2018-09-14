@@ -1,0 +1,483 @@
+/*
+ * @Author: Mr.B 
+ * @Date: 2017-12-21 17:37:38 
+ * @Last Modified by: Mr.B
+ * @Last Modified time: 2018-03-05 16:34:09
+ */
+:global
+    .jwplayer.jw-skin-nk-player
+        .jw-display-container
+            position relative
+
+        .jw-display-controls
+            position absolute
+            left 2%
+            bottom 5%
+
+        &.jw-breakpoint-4 .jw-display .jw-icon
+        &.jw-breakpoint-5 .jw-display .jw-icon
+        &.jw-breakpoint-6 .jw-display .jw-icon
+        &.jw-breakpoint-7 .jw-display .jw-icon
+            height 40px
+            line-height 40px
+            width 40px
+
+            &:before
+                font-size: 24px
+                text-shadow: 0 0 5px #000
+
+        &.jw-breakpoint-3 .jw-display .jw-icon
+            height 36px
+            line-height 36px
+            width 36px
+
+            &:before
+                font-size: 20px
+                text-shadow: 0 0 5px #000
+
+        &.jw-breakpoint-2 .jw-display .jw-icon
+            height 36px
+            line-height 36px
+            width 36px
+
+            &:before
+                font-size: 24px
+                text-shadow: 0 0 5px #000
+
+        &.jw-breakpoint-1 .jw-display .jw-icon
+            height 34px
+            line-height 34px
+            width 34px
+
+            &:before
+                font-size: 22px
+                text-shadow: 0 0 5px #000
+
+        &.jw-breakpoint-0 .jw-display .jw-icon
+            height 34px
+            line-height 34px
+            width 34px
+
+            &:before
+                font-size: 20px
+                text-shadow: 0 0 5px #000
+
+    .jwplayer.jw-skin-nk-player .jw-display-icon-container {
+        border-radius: .5em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-dock-button {
+        border-radius: .5em
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-ie) .jw-controlbar .jw-controlbar-center-group .jw-text-alt {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        margin: auto;
+        bottom: auto
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above) .jw-controlbar,
+    .jwplayer.jw-skin-nk-player.jw-flag-ads-googleima .jw-controlbar {
+        height: 2em
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above) .jw-controlbar .jw-overlay,
+    .jwplayer.jw-skin-nk-player.jw-flag-ads-googleima .jw-controlbar .jw-overlay {
+        bottom: 2em
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above) .jw-icon-inline,
+    .jwplayer.jw-skin-nk-player.jw-flag-ads-googleima .jw-icon-inline,
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above) .jw-icon-tooltip,
+    .jwplayer.jw-skin-nk-player.jw-flag-ads-googleima .jw-icon-tooltip,
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above) .jw-text-elapsed,
+    .jwplayer.jw-skin-nk-player.jw-flag-ads-googleima .jw-text-elapsed,
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above) .jw-text-duration,
+    .jwplayer.jw-skin-nk-player.jw-flag-ads-googleima .jw-text-duration,
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above) .jw-text-countdown,
+    .jwplayer.jw-skin-nk-player.jw-flag-ads-googleima .jw-text-countdown {
+        height: 2em;
+        line-height: 2em
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above) .jw-selection-menu .jw-menu-selection-text,
+    .jwplayer.jw-skin-nk-player.jw-flag-ads-googleima .jw-selection-menu .jw-menu-selection-text {
+        height: 2.668em;
+        line-height: 2.668em
+    }
+
+    .jwplayer.jw-skin-nk-player.jw-flag-ads.jw-ie .jw-text-alt,
+    .jwplayer.jw-skin-nk-player.jw-flag-live.jw-ie .jw-text-alt {
+        top: 1px;
+        margin: 0
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player) .jw-time-tip {
+        bottom: 1em
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player) .jw-captions {
+        max-height: calc(100% - 38px)
+    }
+
+    .jwplayer.jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player) video::-webkit-media-text-track-container {
+        max-height: calc(100% - 38px)
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player) .jw-controls .jw-controls-right {
+        bottom: 2em
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player).jw-flag-audio-player .jw-controlbar {
+        height: 100%
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player).jw-flag-audio-player .jw-icon-inline,
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player).jw-flag-audio-player .jw-icon-tooltip,
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player).jw-flag-audio-player .jw-text-elapsed,
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player).jw-flag-audio-player .jw-text-duration,
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player).jw-flag-audio-player .jw-text-countdown {
+        height: auto;
+        line-height: normal
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player) .jw-icon-inline,
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player) .jw-icon-tooltip {
+        min-width: 1.25em
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-time-slider-above):not(.jw-flag-small-player) .jw-selection-menu {
+        padding: 0 .25em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-background-color {
+        background: rgba(238, 238, 238, 0.8)
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-text {
+        color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-knob {
+        color: #464646;
+        background-color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-button-color {
+        color: #464646;
+        fill: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-touch) .jw-button-color:hover,
+    .jwplayer.jw-skin-nk-player .jw-button-color:focus {
+        outline: none;
+        color: #000;
+        fill: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-toggle {
+        color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-toggle.jw-off {
+        color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-toggle.jw-off:focus {
+        color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-toggle:focus {
+        outline: none
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-touch) .jw-toggle.jw-off:hover {
+        color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-display-icon-container {
+        margin: 0 .25em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-display-icon-container .jw-icon {
+        color: #fff
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-rail {
+        background: #b8b6b7
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-buffer {
+        background: #9c9a9d
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-progress {
+        background: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal {
+        height: .2em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-rail,
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-buffer,
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-progress {
+        height: .2em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-knob {
+        margin-left: -0.5em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-vertical .jw-knob {
+        margin-bottom: -0.5em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-vertical .jw-slider-container,
+    .jwplayer.jw-skin-nk-player .jw-slider-vertical .jw-rail,
+    .jwplayer.jw-skin-nk-player .jw-slider-vertical .jw-progress {
+        width: .2em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-menu,
+    .jwplayer.jw-skin-nk-player .jw-time-tip,
+    .jwplayer.jw-skin-nk-player .jw-volume-tip {
+        border: 0
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-menu,
+    .jwplayer.jw-skin-nk-player .jw-time-tip {
+        padding: .5em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-volume-tip {
+        padding: 1em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-skip {
+        padding: .5em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-skip .jw-skiptext,
+    .jwplayer.jw-skin-nk-player .jw-skip .jw-skip-icon {
+        color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-skip.jw-skippable:hover .jw-skip-icon,
+    .jwplayer.jw-skin-nk-player .jw-skip.jw-skippable:hover .jw-text {
+        color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-time-tip .jw-text,
+    .jwplayer.jw-skin-nk-player .jw-dock-button .jw-text {
+        color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-dock-button {
+        background: #9c9a9d
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-touch) .jw-dock-button:hover {
+        background: #b8b6b7
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-icon-cast button {
+        --connected-color: #000;
+        --disconnected-color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-icon-cast button:focus {
+        --connected-color: #000;
+        --disconnected-color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-icon-cast button.jw-off {
+        --connected-color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-icon-cast:hover button {
+        --connected-color: #000;
+        --disconnected-color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-nextup-container {
+        bottom: 2em;
+        padding: 5px .5em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-nextup {
+        border-radius: 0
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-nextup-header {
+        background: rgba(238, 238, 238, 0.9);
+        color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-nextup-body {
+        background: rgba(213, 213, 213, 0.9);
+        color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-nextup-thumbnail-visible+.jw-nextup-title:after {
+        background: -webkit-linear-gradient(top, rgba(213, 213, 213, 0) 0, #d5d5d5 100%);
+        background: linear-gradient(-180deg, rgba(213, 213, 213, 0) 0, #d5d5d5 100%)
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-nextup-close {
+        color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-nextup-close:active {
+        color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-nextup-close:hover {
+        color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player.jwplayer:not(.jw-flag-touch):not(.jw-error):not(.jw-state-error):not(.jw-state-buffering) .jw-media:hover~.jw-controls .jw-display-icon-display {
+        background-color: transparent
+    }
+
+    .jwplayer.jw-skin-nk-player.jwplayer:not(.jw-flag-touch):not(.jw-error):not(.jw-state-error):not(.jw-state-buffering) .jw-display-icon-container:hover {
+        background-color: transparent
+    }
+
+    .jwplayer.jw-skin-nk-player.jwplayer:not(.jw-flag-touch):not(.jw-error):not(.jw-state-error):not(.jw-state-buffering) .jw-display-icon-container:hover .jw-icon {
+        color: #fff
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-color-active {
+        color: #000;
+        stroke: #000;
+        border-color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-touch) .jw-color-active-hover:hover {
+        color: #000;
+        stroke: #000;
+        border-color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-color-inactive {
+        color: #464646;
+        stroke: #464646;
+        border-color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-touch) .jw-color-inactive-hover:hover {
+        color: #464646;
+        stroke: #464646;
+        border-color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-option {
+        color: #464646
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-option.jw-active-option {
+        color: #000;
+        background-color: rgba(255, 255, 255, 0.6)
+    }
+
+    .jwplayer.jw-skin-nk-player:not(.jw-flag-touch) .jw-option:hover {
+        color: #000
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-icon-inline,
+    .jwplayer.jw-skin-nk-player .jw-icon-tooltip,
+    .jwplayer.jw-skin-nk-player .jw-text-elapsed,
+    .jwplayer.jw-skin-nk-player .jw-text-countdown,
+    .jwplayer.jw-skin-nk-player .jw-text-duration {
+        padding: 0 .5em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-display-icon-container {
+        background-color: transparent;
+        border-radius: 0;
+    }
+
+    .jwplayer.jw-skin-nk-player.jw-state-idle .jw-display-icon-display{
+        border-radius: 50%;
+        border: 2px solid #fff;
+        box-shadow: 0 0 5px #000;
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal {
+        background: transparent
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-slider-container {
+        height: .9em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-rail,
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-buffer,
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-progress {
+        height: .2em;
+        border-radius: 0
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-rail {
+        box-shadow: none
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-knob {
+        top: -0.4em;
+        margin: 0;
+        width: 1px;
+        height: 1em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-horizontal .jw-cue {
+        top: -0.1em;
+        width: .1em;
+        height: .4em;
+        background-color: #000;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-vertical .jw-rail,
+    .jwplayer.jw-skin-nk-player .jw-slider-vertical .jw-progress {
+        width: .2em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-slider-vertical .jw-knob {
+        margin-bottom: -1px;
+        width: .8em;
+        height: 1px;
+        border-radius: 0;
+        left: -0.3em
+    }
+
+    .jwplayer.jw-skin-nk-player .jw-dock-button {
+        border-radius: 0
+    }
+
+    .jwplayer.jw-skin-nk-player.jw-flag-time-slider-above .jw-progress {
+        background: #fff
+    }
+
+    .jwplayer.jw-skin-nk-player.jw-flag-time-slider-above .jw-controlbar .jw-group>.jw-text {
+        color: rgba(255, 255, 255, 0.6)
+    }
+
+    .jwplayer.jw-skin-nk-player.jw-flag-time-slider-above .jw-controlbar .jw-group>.jw-button-color {
+        color: rgba(255, 255, 255, 0.6);
+        fill: rgba(255, 255, 255, 0.6)
+    }
+
+    .jwplayer.jw-skin-nk-player.jw-flag-time-slider-above .jw-controlbar .jw-group>.jw-button-color:hover {
+        color: #fff;
+        fill: #fff
+    }
+
+    .jwplayer.jw-skin-nk-player.jw-flag-time-slider-above .jw-controlbar .jw-group>.jw-button-color:focus {
+        color: #fff;
+        fill: #fff
+    }
