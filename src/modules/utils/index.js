@@ -36,7 +36,7 @@ class Util {
      * @param {Array} image_boxs 
      * @memberof Util
      */
-    centerImage(image_boxs) {
+    centerImageArr(image_boxs) {
         image_boxs.each(function (i) {
             let container = $(this),
                 img = $("img", this),
@@ -64,6 +64,28 @@ class Util {
             });
 
         });
+    }
+
+    centerImage(img) {
+        var container = img.parent(),
+            containerRatio = container.outerWidth() / container.outerHeight(),
+            imgRatio = img.width() / img.height();
+
+        if (imgRatio >= containerRatio) {
+            img.css({ "width": "auto", "height": "102%" });
+        } else {
+            img.css({ "width": "102%", "height": "auto" });
+        }
+
+        img.css({
+            "position": "absolute",
+            "top": "50%",
+            "left": "50%",
+            "margin-top": -1 * img.height() * 0.5 + "px",
+            "margin-left": -1 * img.width() * 0.5 + "px"
+        });
+
+        return img;
     }
 
     /**

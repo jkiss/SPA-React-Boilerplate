@@ -48,8 +48,6 @@
 <body>
     <div id="app"></div>
 
-    <a href="http://www.bestcss.in/user/detail/NewEraforChina-7255" style="width:106px;height:92px;position:fixed;top:0px;right:0px;z-index:99999;text-indent:-9999px;background: url(http://www.bestcss.in/ribbons/black-right.png) no-repeat;" target="_blank">Best CSS Web Gallery</a>
-
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
         <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>?v=<%= version%>"></script>
     <% } %>

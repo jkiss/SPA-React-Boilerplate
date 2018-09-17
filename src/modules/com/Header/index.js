@@ -16,31 +16,39 @@ import styles from './style'
 let _s = classNames.bind(styles)
 
 // res
-import logo from './img/home@2x'
-import home from './img/logo@2x'
+import logo from './img/logo@2x'
+import home from './img/home@2x'
 
 class Header extends Component {
-    componentDidMount() {
-        setTimeout(() => {
-            $('#main_header').attr('data-state', 'scrolled')
-        }, 3000);
+    handleScroll(e){
+        $(window).scrollTop() < 20 ? $('#main_header').attr('data-state', '') : $('#main_header').attr('data-state', 'scrolled');
     }
+    
+    componentDidMount() {
+        var _me = this;
+
+        $(window).scroll(function(event) {
+            _me.handleScroll(event)
+        })
+    }
+
     render() {
         return (
             <header id="main_header" className={_s('header')}>
                 <div className={_s('wrap')+' transition1'}>
-                <div className="content">
-                    <Link to={CONFIG.route.home.path}>
-                        <img className="logo transition1" src={logo} alt="Logo"/>
-                    </Link>
-                    <Link to={CONFIG.route.home.path}>
-                        <img className="home transition1" src={home} alt="Home"/>
-                    </Link>
-                </div>
+                    <div className={_s('content')}>
+                        <Link to={CONFIG.route.home.path}>
+                            <div className={_s('logo')+' transition1'}>Priceless Culture</div>
+                        </Link>
+                        <Link to={CONFIG.route.home.path}>
+                            <img className={_s('home')+' transition1'} src={home} alt="Home"/>
+                        </Link>
+                    </div>
                 </div>
             </header>
-        );
+        )
     }
-}
+    
+};
 
 export default Header;

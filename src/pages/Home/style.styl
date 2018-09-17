@@ -1,0 +1,187 @@
+/*
+ * @Author: Nokey 
+ * @Date: 2018-09-14 13:08:12 
+ * @Last Modified by: Mr.B
+ * @Last Modified time: 2018-09-14 19:13:41
+ */
+
+@import '~nib/lib/nib/index.styl'
+
+/* Begin Home */
+.home-box
+    padding-top 160px
+
+.home-wrapper
+    max-width 1430px
+    padding 0 4px
+    margin 0 auto
+
+// Slider
+.slider-box
+    margin 0 auto
+    padding 4px
+    color #333
+
+.home-slide-item
+    background-color #eee
+
+.slide-content
+    position relative
+    height 528px
+    overflow hidden
+  
+    img
+        opacity 0
+        
+    p
+        color #fff
+    
+.home-slider-data
+    left 10%
+    top 30%
+    
+.home-slider-title
+    width 240px
+    margin-top 24px
+    font-size 42px
+    font-weight bold
+    color #fb436a
+    line-height 1em
+    
+.home-slider-desc
+    width 260px
+    margin-top 24px
+    font-size 14px
+  
+// Flexgrids
+.flexgrids-grid
+    padding 5px
+    transition all 0.3s ease-in-out
+
+.grid-inner-box
+    position relative
+    height 100%
+    background-color #F6F6F6
+    overflow hidden
+
+.da-item
+    position absolute
+    width 100%
+    height 100%
+    background-color rgba(177, 158, 85, 0.65)
+
+.da-box-content
+    display table
+    width 100%
+    height 100%
+
+.da-box-content > .in
+    display table-cell
+    width 100%
+    overflow hidden
+    vertical-align middle
+    text-align center
+    padding 25px
+    
+.da-box-content h3
+    width 100%
+    color #fff
+    font-size 18px
+    line-height 1.4em
+  
+.news-bg
+    opacity 0
+  
+.home-spec-1
+    background url(./img/icon-lines@2x.png) 70% 50% no-repeat
+    background-size auto 75%
+    background-color #f6f6f6
+    
+.home-spec-2
+    background url(./img/icon-f@2x.png) 50% 50% no-repeat
+    background-color #bcad65
+    background-size 12px
+  
+.home-spec-3
+    background-color #bcad65
+
+.home-icon-new:before
+    content ''
+    display block
+    position absolute
+    left 3px
+    top 10px
+    width 40px
+    height 40px
+    background url(./img/icon-new@2x.png) no-repeat
+    background-size 100%
+    z-index 10
+
+// Read more
+.read-more
+    height 140px
+    max-width 1430px
+    padding 0 4px
+    margin 0 auto
+
+.read-more
+    .line
+        float right
+        position relative
+        height 24px
+        line-height 24px
+        margin-top 58px
+        padding 0 60px
+        color #000
+    .line:hover
+        color #E93F5C
+    .line-block
+        display inline-block
+    
+.read-more-btn
+    absolute top 0 left 0
+    height 24px
+    width 60px
+    background url(./img/read-more2.gif) 50% 50% no-repeat
+    background-size auto 100%
+  
+.read-more-line
+    absolute top 11px right 0
+    height 1px
+    width 50px
+    background-color #000
+
+@media screen and (max-width: 835px)
+    .home-slide-item .slide-content
+        .home-slider-label
+            font-size 14px
+        
+        .home-slider-title
+            font-size 24px
+        
+        .home-slider-desc
+            font-size 12px
+        
+        .home-slide-item .slide-content 
+            .home-slider-data
+                top 34%
+
+@media screen and (max-width: 500px)
+    .home-box
+        padding-top 112px
+
+    .home-slide-item .slide-content
+        .home-slider-label
+            font-size 14px
+        
+        .home-slider-title
+            margin-top 6px
+        
+        .home-slider-desc
+            margin-top 6px
+            width 240px
+
+        .home-slider-data
+            top 28%
+  
+/* End Home */

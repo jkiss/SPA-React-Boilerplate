@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2018-03-16 10:40:52 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-09-13 16:29:46
+ * @Last Modified time: 2018-09-14 18:07:35
  */
 'use strict'; 
 
@@ -28,5 +28,10 @@ module.exports = {
         list: {
             path: '/priceless-culture/list'
         }
+    }
+
+    // request url
+    ,io:{
+        all_news_list: 'https://op.cgtn.com/data/2018/priceless-culture/feiyi_list.json'
     }
 }

@@ -1,0 +1,195 @@
+/*
+ * @Author: Nokey 
+ * @Date: 2018-09-16 15:43:04 
+ * @Last Modified by: Mr.B
+ * @Last Modified time: 2018-09-16 15:55:31
+ */
+@import '~nib/lib/nib/index.styl'
+ 
+/* Begin Articles List */
+.list-box
+    padding 180px 0 100px
+  
+.list-wrapper
+    max-width 1200px
+    padding 0 1em
+    margin 0 auto
+  
+.list-title
+    font-size 1.6rem
+    line-height 1.6em
+    font-weight bold
+    text-align center
+    margin 0 0 15px
+  
+.icon1-wrap
+    text-align center
+    margin 15px 0
+  
+.icon1-wrap img
+    height 10px
+  
+.list-desc
+    text-align center
+    font-size 0.8rem
+    line-height 1.8em
+    color #888
+    margin 15px auto
+    padding 0 2em
+    max-width 960px
+  
+// List Container
+.article-list-container
+    margin 60px 0
+    clearfix()
+  
+// List Item
+.article-list-item
+    padding 0 12px 24px
+    
+.head-img-wrapper
+    position relative
+    overflow hidden
+    border-radius 5px 5px 0 0
+    border 1px solid #E8E8E8
+    background url(./img/ajax-loader-3.gif) 50% 50% no-repeat
+    background-size 20px
+  
+.head-img-wrapper img
+    opacity 0
+  
+.foot-content-wrapper
+    position relative
+    padding 20px 10px 10px
+    border 1px solid #E8E8E8
+    border-top none
+    border-radius 0 0 5px 5px
+
+        h3
+            font-weight bold
+            font-size 1rem
+            height 2.8em
+            line-height 1.4em
+            overflow hidden
+
+        .sep-line-1
+            display block
+            margin-top 10px
+            width 30%
+            height 2px
+            background-color #ddd
+
+        .desc-wrapper
+            margin-top 10px
+
+        span
+            display inline-block
+            height 24px
+            line-height 24px
+            font-size 0.75rem
+
+        .news-type
+            margin-right 36px
+
+        .news-date
+            position relative
+
+        .sep-line-3
+            position absolute
+            left -18px
+            top 6px
+            height 12px
+            width 1px
+            background-color #82868B
+
+// Pagination
+.pagination-wrapper
+    position relative
+    width 400px
+    height 38px
+    line-height 38px
+    padding 0 35px
+    margin 0 auto
+    text-align center
+    font-weight bold
+  
+.page-num, .page-ellipsis
+    margin 0 12px
+
+.page-num
+    cursor pointer
+
+.page-num:hover
+.page-num.active
+    color #E93F5C
+
+.prev-btn, .next-btn
+    width 35px
+    height 38px
+    line-height 38px
+    border-radius 5px
+    overflow hidden
+    color #fff
+    background-color #E93F5C
+    cursor pointer
+
+.prev-btn.disable, .next-btn.disable
+    background-color #ccc
+
+.prev-btn
+    absolute top 0 left 0
+
+.next-btn
+    absolute top 0 right 0
+  
+.list-read-more-btn
+    margin 0 auto
+    width 120px
+    height 40px
+    line-height 36px
+    text-align center
+    color #E93F5C
+    border 2px solid #E93F5C
+    border-radius 5px
+    background-color #fff
+    cursor pointer
+
+.list-loading-box
+    margin 0 auto
+    width 50px
+    height 55px
+    background url(./img/ajax-loader-3.gif) 50% 50% no-repeat
+    background-size 36px
+
+/* Articles's Grid Style */
+.grid
+    display block
+    text-align left
+    padding 0%
+    width 100%
+    box-sizing border-box
+
+.grid .column
+    display inline-block
+
+.grid .float
+    float left
+
+.grid .column
+    width 33.333333%
+
+@media screen and (max-width: 835px)
+    .grid .column
+        width 50%
+
+@media screen and (max-width: 500px)
+    .grid .column
+        width 100%
+    
+    .list-wrapper
+        padding 0
+    
+    .list-box
+        padding 110px 0
+
+/* End Articles List */

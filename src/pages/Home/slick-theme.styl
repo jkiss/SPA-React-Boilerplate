@@ -1,0 +1,156 @@
+/*
+ * @Author: Nokey 
+ * @Date: 2017-03-14 15:26:54 
+ * @Last Modified by: Mr.B
+ * @Last Modified time: 2018-09-14 19:08:20
+ */
+
+:global{
+    /* Slider */
+    .slick-loading .slick-list
+    {
+        background: #fff url('./img/ajax-loader.gif') center center no-repeat;
+    }
+
+    /* Icons */
+
+
+    /* Arrows */
+    .slick-prev,
+    .slick-next
+    {
+        font-size: 0;
+        line-height: 0;
+
+        position: absolute;
+        top: 50%;
+
+        display: block;
+
+        width: 65px;
+        height: 53px;
+        padding: 0;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+
+        cursor: pointer;
+
+        color: transparent;
+        border: none;
+        outline: none;
+        background: transparent;
+        
+        z-index 10
+    }
+
+    .slick-prev.slick-disabled:before,
+    .slick-next.slick-disabled:before
+    {
+        opacity: .25;
+    }
+
+    .slick-prev
+    {
+        left: 0;
+        background url(./img/chevron-left.png) 50% 50% no-repeat
+        background-size 100%
+    }
+    [dir='rtl'] .slick-prev
+    {
+        right: 30px;
+        left: auto;
+    }
+
+    .slick-next
+    {
+        right: 0;
+        background url(./img/chevron-right.png) 50% 50% no-repeat
+        background-size 100%
+    }
+    [dir='rtl'] .slick-next
+    {
+        right: auto;
+        left: 30px;
+    }
+
+    /* Dots */
+    .slick-dotted.slick-slider
+    {
+        margin-bottom: 30px;
+    }
+
+    .slick-dots
+    {
+        position: absolute;
+        bottom: 20px;
+
+        display: block;
+
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        list-style: none;
+
+        text-align: center;
+    }
+    .slick-dots li
+    {
+        position: relative;
+
+        display: inline-block;
+
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+        padding: 0;
+
+        cursor: pointer;
+    }
+    .slick-dots li button
+    {
+        font-size: 0;
+        line-height: 0;
+
+        display: block;
+
+        width: 10px;
+        height: 10px;
+        padding: 5px;
+
+        cursor: pointer;
+
+        color: transparent;
+        border: 0;
+        outline: none;
+        background url(./img/dot-hollow@2x.png) 50% 50% no-repeat
+        background-size 10px
+    }
+    .slick-dots li button:hover,
+    .slick-dots li button:focus
+    {
+        outline: none;
+    }
+
+    .slick-dots li.slick-active button
+    {
+        opacity: .75;
+        background-image url(./img/dot-solid@2x.png)
+    }
+
+    @media screen and (max-width: 500px){
+        .slick-prev{
+            left: 16px;
+        }
+            
+        .slick-next{
+            right: 16px;
+        }
+            
+        .slick-dots{
+            bottom: 0;
+        }
+    }
+}
+

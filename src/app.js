@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2018-03-30 16:16:43 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-09-13 20:45:57
+ * @Last Modified time: 2018-09-14 18:10:41
  */
 'use strict';
 
@@ -20,7 +20,7 @@ import CONFIG from '../config'
 import Header from 'com/Header'
 import Footer from 'com/Footer'
 import Home from 'Home'
-import List from 'List'
+import NewsList from 'NewsList'
 
 // Style
 import 'roboto-thin.styl'
@@ -32,11 +32,11 @@ const routes = [
     {
         path: CONFIG.route.home.path,
         exact: true,
-        main: () => <Home value={1} />
+        main: () => <Home />
     },{
         path: CONFIG.route.list.path,
         exact: true,
-        main: () => <List />
+        main: () => <NewsList />
     }
 ]
 
@@ -82,9 +82,7 @@ class App extends React.Component {
                         <Route render={() => <div>Not Found</div>} />
                     </Switch>
                     
-                    <footer style={{ textAlign: 'center' }}>
-                        CGTN ©2018 Created by H5+Team
-                    </footer>
+                    <Footer/>
                 </div>
             </Router>
         )

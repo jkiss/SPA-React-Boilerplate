@@ -11,7 +11,7 @@
 .header
     display block
     fixed top 0 left 0
-    background-color #EA3344
+    background-color #b9a764
     width 100%
     z-index 100
 
@@ -27,12 +27,15 @@
     height 100%
     margin 0 auto
   
-.js-scroll .wrap
-    height 60px
+// .js-scroll .wrap
+//     height 60px
 
 .logo
-    absolute top 40px left 10px
-    width 130px
+    absolute top 0px left 10px
+    height 100%
+    line-height 120px
+    color #fff
+    font-size 3rem
   
 .home
     absolute top 48px right 10px
@@ -41,11 +44,29 @@
 .header[data-state='scrolled']
     .wrap
         height 60px
+
     .logo
-        top 15px
-        width 100px
+        line-height 60px
+        font-size 2rem
+
     .home
         top 20px
         width 30px
+
+@media screen and (max-width: 835px)
+    .content
+        max-width 95%
+
+@media screen and (max-width: 500px)
+    .wrap
+        height 90px
+    
+    .logo
+        top 28px
+        width 120px
+    
+    .home
+        width 32px
+        top 33px
 
 /* End Header */
