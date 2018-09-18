@@ -30,7 +30,7 @@ const Title = props=>{
                 <img src={icon1} alt="ICON" />
             </div>
             <p className={_s('list-desc')}>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                A peek into China's intangible cultural heritages
             </p>
         </div>
     )
@@ -65,16 +65,10 @@ class ListItem extends Component{
         }
     }
 
-    componentDidMount() {
-        // TODO: get the summary of this item
-
-    }
-
     componentWillReceiveProps(nextProps) {
-        // console.log(this.refs.itemImg);
-        if (!this.props.narrowScreen) {
-            $(this.refs.itemImg).removeClass('show');
-        }
+        // if (!this.props.narrowScreen) {
+        //     $(this.itemImg).removeClass('show');
+        // }
     }
 
     render() {
@@ -83,14 +77,19 @@ class ListItem extends Component{
 
         return (
             <div className={_s('article-list-item', 'column', 'float')}>
-                <Link to={{ 
-                    pathname: '/chinastartup/articles/' + this.props.newsid + '/' + encodeURIComponent(url_title), 
-                    state: { id: this.props.newsid } 
-                }}>
-                    <div className={_s('head-img-wrapper')} data-ratio="0.78" ref={(item) => { this.props.handleResizeItem($(item)) }}>
-                        <img ref={ele=>this.itemImg = ele} src={this.props.imgurl} alt="Head Image" onLoad={this.props.handleCenterImgLoaded} />
+                <a href={this.props.detailUrl}>
+                    <div 
+                        className={_s('head-img-wrapper')} 
+                        data-ratio="0.56" 
+                        ref={(item) => { this.props.handleResizeItem($(item)) }}>
+
+                        <img 
+                            ref={ele=>this.itemImg = ele} 
+                            src={this.props.imgurl} 
+                            alt="Head Image" 
+                            onLoad={this.props.handleCenterImgLoaded} />
                     </div>
-                </Link>
+                </a>
 
                 <div className={_s('foot-content-wrapper')}>
                     <h3>{this.props.title}</h3>
@@ -98,19 +97,20 @@ class ListItem extends Component{
                     <i className={_s('sep-line-1')}></i>
 
                     <p className={_s('summary')}>
-                        {/* this.state.summary */}
+                        {this.props.summary}
                     </p>
 
-                    <i className={_s('sep-line-2')}></i>
+                    {/* <i className={_s('sep-line-2')}></i> */}
 
                     <div className={_s('desc-wrapper')}>
-                        <span className={_s('news-type')} style={{ color: this.state.typestyle }} >
+                        {/* <span className={_s('news-type')} style={{ color: this.state.typestyle }} >
                             {this.state.type}
-                        </span>
+                        </span> */}
 
                         <span className={_s('news-date')}>
-                            <i className={_s('sep-line-3')}></i>
-                            {this.state.date}
+                            {/* <i className={_s('sep-line-3')}></i> */}
+                            <i className={_s('icon-clock')}></i>
+                            {this.props.newstime}
                         </span>
                     </div>
                 </div>
@@ -134,10 +134,12 @@ const List = props=>{
                     speciallabelcolor={item.speciallabelcolor} 
                     imgurl={item.pic_link} 
                     title={item.news_title} 
+                    summary={item.news_content}
                     handleCenterImgLoaded={props.handleCenterImgLoaded} 
                     handleResizeItem={props.handleResizeItem} 
                     newsid={item.id} 
-                    narrowScreen={props.narrowScreen} />
+                    narrowScreen={props.narrowScreen}
+                    detailUrl={item.news_link} />
             )
         })
     }
@@ -198,7 +200,7 @@ class PageNum extends Component{
 
     render() {
         return (
-            <span className={this.props.active ? (_s('page-num', 'active')+' transition1') : (_s('page-num')+' transition1')} onClick={this.handleClick}>
+            <span className={this.props.active ? (_s('page-num', 'active')+' transition1') : (_s('page-num')+' transition1')} onClick={this.handleClick.bind(this)}>
                 {this.props.num}
             </span>
         );
@@ -248,11 +250,11 @@ class Pagination extends Component{
         if (totalNum <= range) {
             startNum = 1;
             for (temp = startNum; temp <= totalNum; temp++) {
-                paginationDoms.push(<PageNum key={'pagenum' + key++} num={temp} active={nowNum === temp ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+                paginationDoms.push(<PageNum key={'pagenum' + key++} num={temp} active={nowNum === temp ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
             }
         } else {
             // 前一页按钮
-            paginationDoms.push(<PrevBtn key={'pagenum' + key++} num={nowNum} firstNum={1} disable={nowNum <= 1 ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+            paginationDoms.push(<PrevBtn key={'pagenum' + key++} num={nowNum} firstNum={1} disable={nowNum <= 1 ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
 
             // 中间页码和省略号
             if (nowNum <= Math.ceil(range / 2)) {
@@ -260,50 +262,50 @@ class Pagination extends Component{
 
                 // 中间 Range 的页码
                 for (temp = startNum; temp <= range; temp++) {
-                    paginationDoms.push(<PageNum key={'pagenum' + key++} num={temp} active={nowNum === temp ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+                    paginationDoms.push(<PageNum key={'pagenum' + key++} num={temp} active={nowNum === temp ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
                 }
 
                 // 后省略号
                 paginationDoms.push(<Ellipsis key={'pagenum' + key++} />);
 
                 // The last page num
-                paginationDoms.push(<PageNum key={'pagenum' + key++} num={totalNum} active={false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+                paginationDoms.push(<PageNum key={'pagenum' + key++} num={totalNum} active={false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
             } else if (nowNum >= (totalNum - Math.floor(range / 2))) {
                 startNum = totalNum - range + 1;
 
                 // The first page num
-                paginationDoms.push(<PageNum key={'pagenum' + key++} num={1} active={false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+                paginationDoms.push(<PageNum key={'pagenum' + key++} num={1} active={false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
 
                 // 前省略号
                 paginationDoms.push(<Ellipsis key={'pagenum' + key++} />);
 
                 // 中间 Range 的页码
                 for (temp = startNum; temp <= totalNum; temp++) {
-                    paginationDoms.push(<PageNum key={'pagenum' + key++} num={temp} active={nowNum === temp ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+                    paginationDoms.push(<PageNum key={'pagenum' + key++} num={temp} active={nowNum === temp ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
                 }
             } else {
                 startNum = nowNum - Math.floor(range / 2);
 
                 // The first page num
-                paginationDoms.push(<PageNum key={'pagenum' + key++} num={1} active={false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+                paginationDoms.push(<PageNum key={'pagenum' + key++} num={1} active={false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
 
                 // 前省略号
                 paginationDoms.push(<Ellipsis key={'pagenum' + key++} />);
 
                 // 中间 Range 的页码
                 for (temp = startNum; temp <= (range + startNum); temp++) {
-                    paginationDoms.push(<PageNum key={'pagenum' + key++} num={temp} active={nowNum === temp ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+                    paginationDoms.push(<PageNum key={'pagenum' + key++} num={temp} active={nowNum === temp ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
                 }
 
                 // 后省略号
                 paginationDoms.push(<Ellipsis key={'pagenum' + key++} />);
 
                 // The last page num
-                paginationDoms.push(<PageNum key={'pagenum' + key++} num={totalNum} active={false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+                paginationDoms.push(<PageNum key={'pagenum' + key++} num={totalNum} active={false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
             }
 
             // 后一页按钮
-            paginationDoms.push(<NextBtn key={'pagenum' + key++} num={nowNum} lastNum={totalNum} disable={nowNum >= totalNum ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum} />);
+            paginationDoms.push(<NextBtn key={'pagenum' + key++} num={nowNum} lastNum={totalNum} disable={nowNum >= totalNum ? true : false} handleUpdatePageNum={_me.handleUpdatePageNum.bind(this)} />);
         }
 
         return paginationDoms;
@@ -326,7 +328,7 @@ class Pagination extends Component{
 }
 // End Pagination //
 
-// ReadMore
+// ReadMore (will show on mobile device)
 class ReadMore extends Component{
     constructor(props) {
         super(props);
@@ -361,9 +363,10 @@ class ReadMore extends Component{
     render() {
         return (
             <div>
-                <div className={this.state.loading ? (_s('list-read-more-btn')+'none') : _s('list-read-more-btn')} onClick={this.handleClick} >
+                <div className={this.state.loading ? (_s('list-read-more-btn')+' none') : _s('list-read-more-btn')} onClick={this.handleClick.bind(this)} >
                     {this.state.noMore ? 'END' : 'MORE'}
                 </div>
+
                 <div className={this.state.loading ? _s('list-loading-box') : (_s('list-loading-box')+'none')} ></div>
             </div>
         );
@@ -382,6 +385,9 @@ class NewsList extends React.Component {
             currentPageNum: 1,
             totalPageNum: 0
         }
+
+        this.num_per_page = 9
+        this.requesting = false
     }
 
     componentDidMount() {
@@ -390,18 +396,23 @@ class NewsList extends React.Component {
         _me.handlePaginate(_me.state.currentPageNum)
 
         // Resize event
-        window.addEventListener('resize', this.handleResize)
+        window.addEventListener('resize', this.handleResize.bind(this))
 
         // Scroll to top
         window.scrollTo(0, 0)
+
+        // Analytics - gtags
+        gtag('config', 'UA-66998167-8', {
+            'page_path': '/priceless-culture/list'
+        })
     }
 
     componentWillUnmount() {
         // TODO: abort ajax
-        this.getCurrentPageContentAJAX.abort();
+        this.getCurrentPageContentAJAX.abort()
 
         // Unbind Resize event
-        window.removeEventListener('resize', this.handleResize);
+        window.removeEventListener('resize', this.handleResize.bind(this))
     }
 
     handleResize() {
@@ -479,26 +490,30 @@ class NewsList extends React.Component {
 
         // request current page content
         _me.getCurrentPageContentAJAX = $.getJSON(pageURL, {
-            pagenum: current_page_num
-        }).done((json) => {
-            // Set state
-            if (_me.state.narrowScreen) {
-                _me.setState({
-                    totalPageNum: json.total,
-                    listdata: _me.state.listdata.concat(json)
-                });
-            } else {
-                _me.setState({
-                    totalPageNum: json.total,
-                    listdata: json
-                });
-            }
+                pagenum: current_page_num
+            })
+            .done((json) => {
+                let total_pages = Math.ceil(json.length / _me.num_per_page),
+                    curr_page_data = json.slice((current_page_num-1)*_me.num_per_page, current_page_num*_me.num_per_page)
 
-            // callback
-            cb && cb();
-        }).fail((jqxhr, textStatus, err) => {
-            console.log('Request Failed: ' + err + '. -> Articles.js')
-        })
+                // Set state
+                if(_me.state.narrowScreen){
+                    _me.setState({
+                        totalPageNum: total_pages,
+                        listdata: _me.state.listdata.concat(curr_page_data)
+                    })
+                }else{
+                    _me.setState({
+                        totalPageNum: total_pages,
+                        listdata: curr_page_data
+                    })
+                }
+
+                // callback
+                cb && cb();
+            }).fail((jqxhr, textStatus, err) => {
+                console.log('Request Failed: ' + err + '. -> Articles.js')
+            })
 
         // Scroll to top
         // $('body').ScrollTo();
