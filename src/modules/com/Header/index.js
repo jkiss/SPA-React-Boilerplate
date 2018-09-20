@@ -18,6 +18,7 @@ let _s = classNames.bind(styles)
 // res
 import logo from './img/logo@2x'
 import home from './img/home@2x'
+import cgtn_logo from './img/cgtn-logo'
 
 class Header extends Component {
     handleScroll(e){
@@ -37,9 +38,12 @@ class Header extends Component {
             <header id="main_header" className={_s('header')}>
                 <div className={_s('wrap')+' transition1'}>
                     <div className={_s('content')}>
-                        <Link to={CONFIG.route.home.path}>
+                        {/* <Link to={CONFIG.route.home.path}>
                             <div className={_s('logo')+' transition1'}>Priceless Culture</div>
-                        </Link>
+                        </Link> */}
+                        <a href="https://www.cgtn.com" target="_blank">
+                            <img src={cgtn_logo} alt="CGTN" className={_s('logo')+' transition1'} />
+                        </a>
                         <Link to={CONFIG.route.home.path}>
                             <img className={_s('home')+' transition1'} src={home} alt="Home"/>
                         </Link>

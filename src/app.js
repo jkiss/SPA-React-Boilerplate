@@ -14,6 +14,7 @@ jwplayer.key="IaFpnm2qy71qN1ip6dC+1PkqT2JClZfpdNl7lYjX15g="
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 import Util from 'utils'
+import { setWxShare } from 'utils/wxShare'
 import CONFIG from '../config'
 
 // components
@@ -23,7 +24,7 @@ import Home from 'Home'
 import NewsList from 'NewsList'
 
 // Style
-import 'roboto-thin.styl'
+import 'roboto-light.styl'
 import 'styl/reset.styl'
 import 'styl/app.styl'
 
@@ -51,6 +52,20 @@ class App extends React.Component {
 
     componentDidMount() {
         Util.CR()
+
+        // wxShare
+        setWxShare({
+            title: CONFIG.page.title,
+            desc: CONFIG.page.desc,
+            site_link: CONFIG.page.url,
+            img_url: CONFIG.page.thumb,
+            success: ()=>{
+                console.log('Share success!')
+            },
+            cancel: ()=>{
+                console.log('Share cancel!')
+            }
+        })
     }
 
     toggle() {

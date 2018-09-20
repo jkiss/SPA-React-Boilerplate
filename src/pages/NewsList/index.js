@@ -92,7 +92,9 @@ class ListItem extends Component{
                 </a>
 
                 <div className={_s('foot-content-wrapper')}>
-                    <h3>{this.props.title}</h3>
+                    <a href={this.props.detailUrl}>
+                        <h3>{this.props.title}</h3>
+                    </a>
 
                     <i className={_s('sep-line-1')}></i>
 

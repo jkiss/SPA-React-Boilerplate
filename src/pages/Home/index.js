@@ -26,6 +26,8 @@ import slide1 from './img/banner1.jpg'
 import slide2 from './img/banner2.jpg'
 import slide3 from './img/banner3.jpg'
 
+import img_logo from './img/f-logo.png'
+
 import img_pic1 from './img/cover/1'
 import img_pic2 from './img/cover/2'
 import img_pic3 from './img/cover/3'
@@ -131,18 +133,15 @@ class HomeContent extends Component {
             delay: 100,
             selector: '.'+_s('flexgrids-grid'),
             onReady: (a) => {
-                // if (!iOS) {
-                //     a.getTrigger().find('.js-da').hoverdir({
-                //         element: '.js-da-item:eq(0)',
-                //         elementClass: 'js-da-item'
-                //     })
-                // }
-                // a.getTrigger().css('visibility', 'visible')
-                let boxes = $('.'+_s('grid-inner-box'))
-                // console.log(box.eq(0).width() + ':' + box.eq(0).width());
-                boxes.hoverdir({
-                    hoverElem: '.'+_s('da-item')
-                })
+                if(window.innerWidth > 800){
+                    let boxes = $('.'+_s('grid-inner-box'))
+
+                    boxes.hoverdir({
+                        hoverElem: '.'+_s('da-item')
+                    })
+                }else{
+                    $('.'+_s('da-item')).addClass('none')
+                }
 
                 setTimeout(() => {
                     _me.props.handleResize();
@@ -204,13 +203,16 @@ class HomeContent extends Component {
 
                 UTILS.centerImage(img)
                     .addClass('transition2')
-                    .addClass('show')
+                    .addClass(_s('show'))
 
                 _me.props.addCenterImg(img)
             })
 
             // set news title
             news_dom.find('.news-title').text(e.title)
+
+            // set sub title
+            news_dom.find('.'+_s('sub-title-box')).text(e.sub_title)
 
             // set news url
             news_dom.find('a').attr('href', e.news_url)
@@ -221,7 +223,7 @@ class HomeContent extends Component {
         let path_baseurl = '/chinastartup/articles/'
 
         return (
-            <div id="home_content" className="home-content">
+            <div id="home_content" className={_s('home-content')}>
                 <div className="box flexgrids-main-content">
                     <ul className="vanilla flexgrids-container" id="flexgrids_container">
                         <li className={_s('flexgrids-grid')+' news-one'} data-grid="{&quot;&lt;1&quot;:{&quot;w&quot;:&quot;1&quot;,&quot;h&quot;:&quot;1&quot;},&quot;2&lt;&quot;:{&quot;w&quot;:&quot;2&quot;,&quot;h&quot;:&quot;2&quot;}}">
@@ -238,18 +240,24 @@ class HomeContent extends Component {
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
+                                    </div>
                                 </div>
                             </a>
                         </li>
                         <li className={_s('flexgrids-grid', 'home-icon-new')} data-grid="{&quot;&lt;1&quot;:{&quot;w&quot;:&quot;1&quot;,&quot;h&quot;:&quot;1&quot;},&quot;2&lt;&quot;:{&quot;w&quot;:&quot;2&quot;,&quot;h&quot;:&quot;1&quot;}}">
-                            <div className={_s('grid-inner-box', 'home-spec-1')}>
-                                <div className={_s('da-item')}>
+                            <div className={_s('home-spec-1')}>
+                                {/* <div className={_s('da-item')}>
                                     <div className={_s('da-box-content')}>
                                         <div className={_s('in')}>
                                             <h3></h3>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
+                                <img src={img_logo} className={_s('logo')} alt="LOGO" />
                             </div>
                         </li>
                         <li className={_s('flexgrids-grid')+' news-one'} data-grid="{&quot;&lt;1&quot;:{&quot;w&quot;:&quot;1&quot;,&quot;h&quot;:&quot;1&quot;},&quot;2&lt;&quot;:{&quot;w&quot;:&quot;2&quot;,&quot;h&quot;:&quot;2&quot;}}">
@@ -265,6 +273,11 @@ class HomeContent extends Component {
                                                 <h3 className="news-title"></h3>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
                                     </div>
                                 </div>
                             </a>
@@ -283,30 +296,39 @@ class HomeContent extends Component {
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
+                                    </div>
                                 </div>
                             </a>
                         </li>
                         <li className={_s('flexgrids-grid')} data-grid="{&quot;&lt;&quot;:{&quot;w&quot;:&quot;1&quot;,&quot;h&quot;:&quot;1&quot;}}">
-                            <div className={_s('grid-inner-box')}>
-                                <div className={_s('da-item')}>
-                                    <div className={_s('da-box-content')}>
-                                        <div className={_s('in')}>
-                                            <h3></h3>
+                            <a href="https://twitter.com/intent/tweet?text=Priceless Culture&amp;url=https://op.cgtn.com/priceless-culture&amp;via=cgtnofficial" target="_blank">
+                                <div className={_s('grid-inner-box', 'share-twitter')}>
+                                    {/* <div className={_s('da-item')}>
+                                        <div className={_s('da-box-content')}>
+                                            <div className={_s('in')}>
+                                                <h3></h3>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
-                            </div>
+                            </a>
                         </li>
                         <li className={_s('flexgrids-grid')} data-grid="{&quot;&lt;&quot;:{&quot;w&quot;:&quot;1&quot;,&quot;h&quot;:&quot;1&quot;}}">
-                            <div className={_s('grid-inner-box', 'home-spec-2')}>
-                                <div className={_s('da-item')}>
-                                    <div className={_s('da-box-content')}>
-                                        <div className={_s('in')}>
-                                            <h3></h3>
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://op.cgtn.com/priceless-culture&amp;display=popup&amp;app_id=105353929816858">
+                                <div className={_s('grid-inner-box', 'home-spec-2')}>
+                                    {/* <div className={_s('da-item')}>
+                                        <div className={_s('da-box-content')}>
+                                            <div className={_s('in')}>
+                                                <h3></h3>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
-                            </div>
+                            </a>
                         </li>
                         <li className={_s('flexgrids-grid')+' news-one'} data-grid="{&quot;&lt;1&quot;:{&quot;w&quot;:&quot;1&quot;,&quot;h&quot;:&quot;1&quot;},&quot;2&lt;2&quot;:{&quot;w&quot;:&quot;2&quot;,&quot;h&quot;:&quot;2&quot;},&quot;3&lt;&quot;:{&quot;w&quot;:&quot;3&quot;,&quot;h&quot;:&quot;3&quot;}}">
                             <a target="_blank">
@@ -321,6 +343,11 @@ class HomeContent extends Component {
                                                 <h3 className="news-title"></h3>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
                                     </div>
                                 </div>
                             </a>
@@ -338,19 +365,24 @@ class HomeContent extends Component {
                                                 <h3 className="news-title"></h3>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
                                     </div>
                                 </div>
                             </a>
                         </li>
                         <li className={_s('flexgrids-grid')} data-grid="{&quot;&lt;&quot;:{&quot;w&quot;:&quot;1&quot;,&quot;h&quot;:&quot;2&quot;}}">
                             <div className={_s('grid-inner-box', 'home-spec-3')}>
-                                <div className={_s('da-item')}>
+                                {/* <div className={_s('da-item')}>
                                     <div className={_s('da-box-content')}>
                                         <div className={_s('in')}>
                                             <h3></h3>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
                             </div>
                         </li>
@@ -367,6 +399,11 @@ class HomeContent extends Component {
                                                 <h3 className="news-title"></h3>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
                                     </div>
                                 </div>
                             </a>
@@ -385,22 +422,10 @@ class HomeContent extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li className={_s('flexgrids-grid')+' news-one'} data-grid="{&quot;&lt;1&quot;:{&quot;w&quot;:&quot;1&quot;,&quot;h&quot;:&quot;2&quot;},&quot;2&lt;&quot;:{&quot;w&quot;:&quot;2&quot;,&quot;h&quot;:&quot;3&quot;}}">
-                            <a target="_blank">
-                                <div className={_s('grid-inner-box')}>
-                                    {/* news bg */}
-                                    <img className={_s('news-bg')} alt="News Bg" />
 
-                                    {/* news title */}
-                                    <div className={_s('da-item')}>
-                                        <div className={_s('da-box-content')}>
-                                            <div className={_s('in')}>
-                                                <h3 className="news-title"></h3>
-                                            </div>
-                                        </div>
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
                                     </div>
                                 </div>
                             </a>
@@ -419,6 +444,11 @@ class HomeContent extends Component {
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
+                                    </div>
                                 </div>
                             </a>
                         </li>
@@ -435,6 +465,33 @@ class HomeContent extends Component {
                                                 <h3 className="news-title"></h3>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li className={_s('flexgrids-grid')+' news-one'} data-grid="{&quot;&lt;1&quot;:{&quot;w&quot;:&quot;1&quot;,&quot;h&quot;:&quot;2&quot;},&quot;2&lt;&quot;:{&quot;w&quot;:&quot;2&quot;,&quot;h&quot;:&quot;3&quot;}}">
+                            <a target="_blank">
+                                <div className={_s('grid-inner-box')}>
+                                    {/* news bg */}
+                                    <img className={_s('news-bg')} alt="News Bg" />
+
+                                    {/* news title */}
+                                    <div className={_s('da-item')}>
+                                        <div className={_s('da-box-content')}>
+                                            <div className={_s('in')}>
+                                                <h3 className="news-title"></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
                                     </div>
                                 </div>
                             </a>
@@ -452,6 +509,11 @@ class HomeContent extends Component {
                                                 <h3 className="news-title"></h3>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    {/* sub title */}
+                                    <div className={_s('sub-title-box')}>
+
                                     </div>
                                 </div>
                             </a>
@@ -466,7 +528,7 @@ class HomeContent extends Component {
 class HomeSliderItem extends Component{
     componentDidMount() {
         let sliderContent = $(this.sliderContent),
-            ratio = window.innerWidth > 800 ? 0.3738 : 0.5625;
+            ratio = window.innerWidth > 800 ? 0.3738 : 0.3738;
 
         sliderContent.height(sliderContent.width() * ratio + 'px');
     }
@@ -590,11 +652,16 @@ class Home extends Component{
             <div className={_s('home-box')}>
                 <div className={_s('home-wrapper')}>
                     {/* Slider */}
-                    <HomeSlider centerImage={this.centerImage} addCenterImg={this.addCenterImg.bind(this)} />
+                    <HomeSlider 
+                        centerImage={this.centerImage} 
+                        addCenterImg={this.addCenterImg.bind(this)} />
                     {/* End Slider */}
 
                     {/* Main content */}
-                    <HomeContent centerImage={this.centerImage} addCenterImg={this.addCenterImg.bind(this)} handleResize={this.handleResize.bind(this)} />
+                    <HomeContent 
+                        centerImage={this.centerImage} 
+                        addCenterImg={this.addCenterImg.bind(this)} 
+                        handleResize={this.handleResize.bind(this)} />
                     {/* End Main content */}
 
                     <div className={_s('read-more')}>
