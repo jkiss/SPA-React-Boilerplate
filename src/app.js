@@ -79,10 +79,6 @@ class App extends React.Component {
             <Router>
                 <div>
                     <Header/>
-                    <div>
-                        <Link to={CONFIG.route.home.path}>Home </Link>
-                        <Link to={CONFIG.route.list.path}>List</Link>
-                    </div>
                     
                     <Switch>
                         {routes.map((route, index) => (
