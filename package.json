@@ -13,9 +13,9 @@
     "nib": "^1.1.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
-    "react-transition-group": "^2.4.0",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "slick-carousel": "^1.8.1"

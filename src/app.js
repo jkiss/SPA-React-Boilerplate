@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2018-03-30 16:16:43 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-09-14 18:10:41
+ * @Last Modified time: 2018-09-25 10:27:59
  */
 'use strict';
 
@@ -10,9 +10,15 @@ import 'babel-polyfill'
 import 'jwplayer'
 jwplayer.key="IaFpnm2qy71qN1ip6dC+1PkqT2JClZfpdNl7lYjX15g="
 
+// Redux
+import appReducers from './reducers'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+const store = createStore(appReducers)
+
 // core
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import { TransitionGroup, CSSTransition } from "react-transition-group"
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Util from 'utils'
 import { setWxShare } from 'utils/wxShare'
 import CONFIG from '../config'
@@ -22,6 +28,7 @@ import Header from 'com/Header'
 import Footer from 'com/Footer'
 import Home from 'Home'
 import NewsList from 'NewsList'
+import Page404 from '404'
 
 // Style
 import 'roboto-light.styl'
@@ -36,7 +43,7 @@ const routes = [
         main: () => <Home />
     },{
         path: CONFIG.route.list.path,
-        exact: true,
+        exact: false,
         main: () => <NewsList />
     }
 ]
@@ -76,26 +83,28 @@ class App extends React.Component {
     
     render() {
         return (
-            <Router>
-                <div>
-                    <Header/>
-                    
-                    <Switch>
-                        {routes.map((route, index) => (
-                        <Route
-                            key={index}
-                            path={route.path}
-                            exact={route.exact}
-                            component={route.main}
-                        />
-                        ))}
+            <Provider store={store}>
+                <Router>
+                    <div>
+                        <Header/>
+                        
+                        <Switch>
+                            {routes.map((route, index) => (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                exact={route.exact}
+                                component={route.main}
+                            />
+                            ))}
 
-                        <Route render={() => <div>Not Found</div>} />
-                    </Switch>
-                    
-                    <Footer/>
-                </div>
-            </Router>
+                            <Route component={Page404} />
+                        </Switch>
+                        
+                        <Footer/>
+                    </div>
+                </Router>
+            </Provider>
         )
     }
 }
