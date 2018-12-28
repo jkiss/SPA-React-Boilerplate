@@ -2,20 +2,23 @@
  * @Author: Nokey 
  * @Date: 2018-03-30 16:16:43 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-09-25 10:27:59
+ * @Last Modified time: 2018-12-27 17:15:19
  */
 'use strict';
 
-import 'babel-polyfill'
-import 'jwplayer'
-jwplayer.key="IaFpnm2qy71qN1ip6dC+1PkqT2JClZfpdNl7lYjX15g="
+// polyfill
+import 'raf/polyfill'
+import '@babel/polyfill'
 
 // Redux
 import appReducers from './reducers'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-const store = createStore(appReducers)
+const store = createStore(
+    appReducers,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 // core
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -60,19 +63,21 @@ class App extends React.Component {
     componentDidMount() {
         Util.CR()
 
-        // wxShare
-        setWxShare({
-            title: CONFIG.page.title,
-            desc: CONFIG.page.desc,
-            site_link: CONFIG.page.url,
-            img_url: CONFIG.page.thumb,
-            success: ()=>{
-                console.log('Share success!')
-            },
-            cancel: ()=>{
-                console.log('Share cancel!')
-            }
-        })
+        /**
+         * wxShare
+         */
+        // setWxShare({
+        //     title: CONFIG.page.title,
+        //     desc: CONFIG.page.desc,
+        //     site_link: CONFIG.page.url,
+        //     img_url: CONFIG.page.thumb,
+        //     success: ()=>{
+        //         console.log('Share success!')
+        //     },
+        //     cancel: ()=>{
+        //         console.log('Share cancel!')
+        //     }
+        // })
     }
 
     toggle() {

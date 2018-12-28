@@ -2,18 +2,18 @@
  * @Author: Nokey 
  * @Date: 2018-03-16 10:40:52 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-09-14 18:07:35
+ * @Last Modified time: 2018-12-27 16:50:57
  */
 'use strict'; 
 
 module.exports = {
     // Deploy
-    public_path: '/priceless-culture'
-    ,port: 9000
+    public_path: '/home'
+    ,port: 8686
 
     // HTML meta data
     ,page:{
-        title: 'Priceless Culture'
+        title: 'NULL'
         ,desc: ''
         ,image: ''
         ,url: 'https://url/article/new-era-for-china.html'
@@ -23,10 +23,10 @@ module.exports = {
     // routes
     ,route:{
         home:{
-            path: '/priceless-culture'
+            path: '/home'
         },
         list: {
-            path: '/priceless-culture/list'
+            path: '/home/list'
         }
     }
 

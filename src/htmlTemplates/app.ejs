@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><%= htmlWebpackPlugin.options.page.title || 'CGTN' %></title>
+    <title><%= htmlWebpackPlugin.options.page.title || 'NULL' %></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="Cache-Control" content="no-transform">
@@ -31,8 +31,8 @@
     <!-- End Share Twitter -->
 
     <!-- Icon -->
-    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="./favicon.png">
+    <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.public_path %>/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.public_path %>/favicon.png">
 
     <!-- CSS -->
     <% for (var css in htmlWebpackPlugin.files.css) { %>
@@ -40,16 +40,16 @@
     <% } %>
 
     <!-- GA -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66998167-8"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-???????"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        // gtag('config', 'UA-66998167-8');
+        // gtag('config', 'UA-???????');
     </script>
-    <!-- End: GA -->
+    End: GA -->
 
     <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 </head>

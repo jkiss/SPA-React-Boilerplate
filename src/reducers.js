@@ -9,8 +9,8 @@
 import { combineReducers } from 'redux'
 
 // reducers
-import fetchHomeNews from 'Home/reducer'
+import home from 'Home/reducer'
 
 export default combineReducers({
-    fetchHomeNews
+    home
 })

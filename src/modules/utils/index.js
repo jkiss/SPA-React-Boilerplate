@@ -21,7 +21,7 @@ class Util {
     }
 
     CR(){
-        console.log('%c' + 'CGTN - See the difference', 'font-family: "courier new"; color:#b7a457; font-size:24px;')
+        console.log('%c' + 'Mr.B', 'font-family: "courier new"; color:#b7a457; font-size:24px;')
     }
 
     /**

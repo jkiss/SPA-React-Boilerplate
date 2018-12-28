@@ -1,22 +1,26 @@
 /*
  * @Author: Nokey
  * @Date: 2017-02-24 14:16:31
- * @Last Modified by: Nokey
- * @Last Modified time: 2017-07-17 15:30:19
+ * @Last Modified by: Mr.B
+ * @Last Modified time: 2018-12-27 14:25:07
  */
 'use strict';
 
 const webpack = require('webpack')
 const path = require('path')
 const config = require('./config')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const poststylus = require('poststylus')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 /**
  * Common config that can be used in dev & prod environment
  */
-const ENTRY = require('./webpack/entry')
-const LOADERS = require('./webpack/loaders').loaders
-const PLUGINS = require('./webpack/plugins').plugins
-const RESOLVE = require('./webpack/resolve')
+const ENTRY = require('./webpack4/entry')
+const RULES = require('./webpack4/rules').rules
+const PLUGINS = require('./webpack4/plugins').plugins
+const RESOLVE = require('./webpack4/resolve')
+const OPTIMIZITION = require('./webpack4/optimization')
 
 /**
  * Config
@@ -24,6 +28,10 @@ const RESOLVE = require('./webpack/resolve')
 const PUBLIC_PATH = config.public_path
 
 module.exports = {
+    mode: 'production',
+
+    optimization: OPTIMIZITION,
+
     // dectool should be false if env is production!!!
     devtool: false, // false || 'cheap-eval-source-map'
 
@@ -36,15 +44,15 @@ module.exports = {
     },
 
     module: {
-        loaders: LOADERS.concat([
+        rules: RULES.concat([
             {
-                test: /\.(gif|png|jpg)\??.*$/,
+                test: /\.(gif|png|jpg|mp3|mp4|obj|mtl|glb)\??.*$/,
                 use: [
                     {
                         loader: 'url-loader',
                         options: {
                             limit: 1024,
-                            name: '/images/[hash].[ext]'
+                            name: '/media/[hash].[ext]'
                         }
                     }
                 ]
@@ -61,16 +69,56 @@ module.exports = {
                         }
                     }
                 ]
+            },
+
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            // you can specify a publicPath here
+                            // by default it use publicPath in webpackOptions.output
+                            // publicPath: '../'
+                        }
+                    },
+                    'css-loader'
+                ]
+            },
+    
+            {
+                test: /\.styl$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            // you can specify a publicPath here
+                            // by default it use publicPath in webpackOptions.output
+                            // publicPath: '../'
+                        }
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[hash:base64:12]'
+                        }
+                    },
+                    {
+                        loader: 'stylus-loader',
+                        options: {
+                            use: [
+                                poststylus([ 'autoprefixer', 'rucksack-css' ])
+                            ]
+                        }
+                    }
+                ]
             }
         ])
     },
 
     plugins: PLUGINS.concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production') // development - production
-            }
-        })
+        new BundleAnalyzerPlugin()
     ]),
 
     resolve: RESOLVE

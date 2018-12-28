@@ -6,7 +6,7 @@
  */
 'use strict'; 
 
-function fetchHomeNews(state = {
+function home(state = {
     isFetching: false,
     msg: '',
     items: []
@@ -35,4 +35,4 @@ function fetchHomeNews(state = {
     }
 }
 
-export default fetchHomeNews
+export default home

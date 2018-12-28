@@ -1,22 +1,24 @@
 /*
- * @Author: Nokey
- * @Date: 2017-02-24 14:16:31
- * @Last Modified by: Nokey
- * @Last Modified time: 2017-09-02 20:45:03
+ * @Author: Nokey 
+ * @Date: 2018-12-27 14:16:11 
+ * @Last Modified by: Mr.B
+ * @Last Modified time: 2018-12-27 14:16:56
  */
 'use strict';
 
 const webpack = require('webpack')
 const path = require('path')
 const config = require('./config')
+const poststylus = require('poststylus')
 
 /**
  * Common config that can be used in dev & prod environment
  */
-const ENTRY = require('./webpack/entry')
-const LOADERS = require('./webpack/loaders').loaders
-const PLUGINS = require('./webpack/plugins').plugins
-const RESOLVE = require('./webpack/resolve')
+const ENTRY = require('./webpack4/entry')
+const RULES = require('./webpack4/rules').rules
+const PLUGINS = require('./webpack4/plugins').plugins
+const RESOLVE = require('./webpack4/resolve')
+const OPTIMIZITION = require('./webpack4/optimization')
 
 /**
  * Config
@@ -30,6 +32,10 @@ const PUBLIC_PATH = config.public_path
 // const openBrowserPlugin = require('open-browser-webpack-plugin')
 
 module.exports = {
+    mode: 'development',
+
+    optimization: OPTIMIZITION,
+
     // dectool should be false if env is production!!!
     devtool: 'cheap-eval-source-map', // false || 'cheap-eval-source-map'
 
@@ -37,31 +43,30 @@ module.exports = {
     devServer: {
         port: PORT,
         contentBase: path.join(__dirname, './build'),
+        hot: true,
         historyApiFallback: {
-            rewrites: [
-                { from: /\/.*/, to: '/index.html'}
-            ]
+            index: PUBLIC_PATH+'/index.html'
         }
     },
 
     entry: ENTRY,
 
     output: {
-        path: path.join(__dirname, "build"),
-        filename: "bundle/[name].js",
+        path: path.join(__dirname, 'build'),
+        filename: 'bundle/[name].js',
         publicPath: PUBLIC_PATH
     },
 
     module: {
-        loaders: LOADERS.concat([
+        rules: RULES.concat([
             {
-                test: /\.(gif|png|jpg)\??.*$/,
+                test: /\.(gif|png|jpg|mp3|mp4|obj|mtl|glb)\??.*$/,
                 use: [
                     {
                         loader: 'url-loader',
                         options:{
                             limit: 1024,
-                            name: 'images/[hash].[ext]'
+                            name: 'media/[hash].[ext]'
                         }
                     }
                 ]
@@ -78,20 +83,42 @@ module.exports = {
                         }
                     }
                 ]
+            },
+
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+    
+            {
+                test: /\.styl$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[local]__[hash:base64:10]'
+                        }
+                    },
+                    {
+                        loader: 'stylus-loader',
+                        options: {
+                            use: [
+                                poststylus([ 'autoprefixer', 'rucksack-css' ])
+                            ]
+                        }
+                    }
+                ]
             }
         ])
     },
 
     plugins: PLUGINS.concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('development') // development - production
-            }
-        })
-
-        // ,new openBrowserPlugin({
-        //     url: 'http://localhost:' + PORT + PUBLIC_PATH
-        // })
+        new webpack.HotModuleReplacementPlugin()
     ]),
 
     resolve: RESOLVE
