@@ -32,6 +32,11 @@ module.exports = {
 
     // request url
     ,io:{
-        all_news_list: 'https://op.cgtn.com/data/2018/priceless-culture/feiyi_list.json'
+        home: {
+            news_json: 'https://op.cgtn.com/data/2018/priceless-culture/feiyi_list.json'
+        },
+        list: {
+            all_news_list: 'https://op.cgtn.com/data/2018/priceless-culture/feiyi_list.json'
+        }
     }
 }

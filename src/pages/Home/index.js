@@ -8,11 +8,9 @@
 
 import React, { Component } from 'react'
 import CONFIG from '../../../config'
-import { Link } from 'react-router-dom'
-import UTILS from 'utils'
-
-// redux
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { reqHomeList } from './api'
 
 // com
 import Component1 from './Component1'
@@ -33,21 +31,30 @@ class Home extends Component{
         //     'page_path': '/priceless-culture'
         // })
 
-        console.log('redux', _me.props.home)
+        console.log('redux', _me.props)
         _me.props.dispatch({
-            type: 'START_FETCH',
-            payload: {}
+            type: 'START_FETCH'
         })
 
-        setTimeout(()=>{
-            _me.props.dispatch({
-                type: 'FETCH_SUCCESS',
-                payload: {
-                    msg: 'Fetch home data success!',
-                    data: ['1', '2']
-                }
-            })
-        }, 2000)
+        reqHomeList().then((data)=>{
+            if(data.status == 200){
+                _me.props.dispatch({
+                    type: 'FETCH_SUCCESS',
+                    payload: {
+                        msg: 'Fetch home data success!',
+                        data: data.data
+                    }
+                })
+            }else{
+                _me.props.dispatch({
+                    type: 'FETCH_FAILURE',
+                    payload: {
+                        msg: 'Fetch home data fail...'
+                    }
+                })
+            }
+        })
+        
     }
 
     componentWillUnmount() {
@@ -59,13 +66,23 @@ class Home extends Component{
     }
 
     render() {
+        let cont
+        if(this.props.home.isFetching){
+            cont = <p className={_s('p')}>Loading</p>
+        }else{
+            cont = (
+                <React.Fragment>
+                    <Component1 />
+                
+                    <Link to={CONFIG.route.list.path}>
+                        <span className={_s('link')}>List</span>
+                    </Link>
+                </React.Fragment>
+            )
+        }
         return (
             <div className={_s('box')}>
-                <Component1 />
-                
-                <Link to={CONFIG.route.list.path}>
-                    <span className={_s('link')}>List</span>
-                </Link>
+                { cont }
             </div>
         );
     }
@@ -75,4 +92,4 @@ const mapStateToProps = state => ({
     home: state.home
 })
 
-export default connect(mapStateToProps)(Home)
+export default withRouter(connect(mapStateToProps)(Home))

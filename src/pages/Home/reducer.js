@@ -6,8 +6,12 @@
  */
 'use strict'; 
 
+/**
+ * reducers below /home domain(include it's components)
+ */
+
 function home(state = {
-    isFetching: false,
+    isFetching: true,
     msg: '',
     items: []
 }, action) {

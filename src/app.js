@@ -6,6 +6,8 @@
  */
 'use strict';
 
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
+
 // polyfill
 import 'raf/polyfill'
 import '@babel/polyfill'
@@ -17,7 +19,7 @@ import { Provider } from 'react-redux'
 
 const store = createStore(
     appReducers,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeWithDevTools()
 )
 
 // core

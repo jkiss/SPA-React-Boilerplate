@@ -7,6 +7,8 @@
 'use strict';
 
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 // style
 import classNames from 'classnames/bind'
@@ -24,6 +26,10 @@ class Component1 extends Component {
         }
     }
 
+    componentDidMount() {
+        console.log('com1', this.props)
+    }
+
     render() {
         return (
             <div id="component1" className={_s('box')}>
@@ -36,4 +42,8 @@ Component1.defaultProps = {
     title: 'Component1 content'
 }
 
-export default Component1
+const mapStateToProps = state => ({
+    home: state.home
+})
+
+export default withRouter(connect(mapStateToProps)(Component1))
