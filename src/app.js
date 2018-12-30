@@ -28,7 +28,7 @@ import Util from 'utils'
 import { setWxShare } from 'utils/wxShare'
 import CONFIG from '../config'
 
-// components
+// coms
 import Header from 'com/Header'
 import Footer from 'com/Footer'
 import Home from 'Home'

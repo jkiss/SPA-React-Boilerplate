@@ -1,4 +1,3 @@
-# 非物质文化遗产
+# React SPA template
 
-# 问题总结：
-
+> GOOD for novices who dig up the principle about react-router and redux, fundamental syntax use of redux, NO highly abstract.
