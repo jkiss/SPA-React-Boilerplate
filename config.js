@@ -10,6 +10,7 @@ module.exports = {
     // Deploy
     public_path: '/home'
     ,port: 8686
+    ,plugin_url: ''
 
     // HTML meta data
     ,page:{
@@ -27,6 +28,12 @@ module.exports = {
         },
         list: {
             path: '/home/list'
+        },
+        nav1:{
+            path: '/nav1'
+        },
+        nav2:{
+            path: '/nav2'
         }
     }
 

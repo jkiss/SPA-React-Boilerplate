@@ -6,13 +6,16 @@
  */
 'use strict';
 
+import config from '../../../config'
+import url from 'url'
+
 class Util {
     isIE() {
         let ua = window.navigator.userAgent,
             e = ua.indexOf("MSIE ")
 
         if (e > 0)
-            return parseInt(ua.substring(e + 5, ua.indexOf(".", e)), 10);
+            return parseInt(ua.substring(e + 5, ua.indexOf(".", e)), 10)
         if (ua.indexOf("Trident/") > 0) {
             let n = ua.indexOf("rv:");
             return parseInt(ua.substring(n + 3, ua.indexOf(".", n)), 10)
@@ -108,8 +111,8 @@ class Util {
                 primary: 'html5',
                 autostart: false,
                 hlshtml: true,
-                base: 'https://op.cgtn.com/plugins/jwplayer-7.12.11',
-                flashplayer: 'https://op.cgtn.com/plugins/jwplayer-7.12.11/jwplayer.flash.swf'
+                base: url.resolve(config.plugin_url, '/plugins/jwplayer-7.12.11'),
+                flashplayer: url.resolve(config.plugin_url, '/plugins/jwplayer-7.12.11/jwplayer.flash.swf')
             }).on('setupError', (e)=>{
                 console.log('Setup Error...', e)
             }).on('play', ()=>{

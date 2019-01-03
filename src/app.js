@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2018-03-30 16:16:43 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-12-27 17:15:19
+ * @Last Modified time: 2019-01-03 10:25:29
  */
 'use strict';
 
@@ -31,6 +31,7 @@ import CONFIG from '../config'
 // coms
 import Header from 'com/Header'
 import Footer from 'com/Footer'
+import Siderbar from 'com/Sidebar'
 import Home from 'Home'
 import NewsList from 'NewsList'
 import Page404 from '404'
@@ -92,7 +93,7 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <Router>
-                    <div>
+                    <React.Fragment>
                         <Header/>
                         
                         <Switch>
@@ -109,7 +110,9 @@ class App extends React.Component {
                         </Switch>
                         
                         <Footer/>
-                    </div>
+
+                        <Siderbar/>
+                    </React.Fragment>
                 </Router>
             </Provider>
         )
