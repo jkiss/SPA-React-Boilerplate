@@ -27,7 +27,8 @@ module.exports = {
                 plugins: [
                     '@babel/plugin-transform-runtime',
                     ['import', { 
-                        'libraryName': 'antd'
+                        libraryName: 'antd',
+                        style: 'css'
                     }]
                 ],
                 cacheDirectory: true
