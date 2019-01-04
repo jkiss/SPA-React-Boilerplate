@@ -17,7 +17,7 @@ module.exports = {
         title: 'NULL'
         ,desc: ''
         ,image: ''
-        ,url: 'https://url/article/new-era-for-china.html'
+        ,url: 'https://url/article/index.html'
         ,thumb: 'https://url/article/images/thumb.jpg'
     }
 
