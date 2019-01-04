@@ -91,7 +91,7 @@ webpack v4.28.2
 │       ├── res/
 │       │   └── ajax-loader.gif
 │       ├── api.js      // ajax url using async/await
-│       ├── reducer.js  // every domain has only one reducer 
+│       ├── reducer.js  // each domain has only one reducer 
 │       ├── css.styl    // main css
 │       └── index.js    // Home compoent entry
 │
