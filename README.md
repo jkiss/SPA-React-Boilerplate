@@ -1,6 +1,8 @@
 # React SPA template
 
-> :loudspeaker: GOOD for novices who dig up the principle about react-router and redux, fundamental syntax use of redux, NO highly abstract.
+> :loudspeaker: 
+> 1. GOOD for novices who dig up the principle about react-router and redux, fundamental syntax use of redux, NO highly abstract.
+> 2. MOST IMPORTANT: The purpose of this template project is to show you principles of redux & react-router, you can expand it on your demand. Such as writing Actions into a seperate file and so on.
 
 ### :package: Usage：
 > Webpack will bundle files into /build folder
