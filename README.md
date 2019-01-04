@@ -1,8 +1,8 @@
 # React SPA template
 
-> GOOD for novices who dig up the principle about react-router and redux, fundamental syntax use of redux, NO highly abstract.
+> :loudspeaker: GOOD for novices who dig up the principle about react-router and redux, fundamental syntax use of redux, NO highly abstract.
 
-### 一、 📦 Usage：
+### :package: Usage：
 > Webpack will bundle files into /build folder
 ```javascript
 npm run dev     // Develop command
@@ -13,19 +13,19 @@ node v10.14.0
 webpack v4.28.2
 ```
 
-### Code Base:
+### :space_invader: Code Base:
 
 1. React v16.7.0
 2. Redux v4.0.1
 3. React-Router v4.2.2
 4. stylus v0.54.5
 
-### Build Environment:
+### :wrench: Build Environment:
 
 1. Webpack v4.28.2
 2. @Babel v7.2.2
 
-### Features:
+### :doughnut: Features:
 
 1. React simple page application;
 2. Broswer router;
@@ -36,7 +36,7 @@ webpack v4.28.2
 7. Bundled by webpack 4;
 8. Support ES6 and ES7 through Babel;
 
-### File Structure:
+### :anchor: File Structure:
 
 ```javascript
 ./src
