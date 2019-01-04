@@ -8,6 +8,9 @@
 
 import React, { Component } from 'react'
 import CONFIG from '../../../config'
+import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { reqNewsList } from './api'
 
 // Style
 import classNames from 'classnames/bind'
@@ -20,6 +23,26 @@ class NewsList extends React.Component {
     componentDidMount() {
         var _me = this
 
+        reqNewsList().then((ajax)=>{
+            if(ajax.status == 200){
+                console.log(ajax)
+                _me.props.dispatch({
+                    type: 'list_FETCH_SUCCESS',
+                    payload: {
+                        msg: 'Fetch list data success!',
+                        data: ajax.data
+                    }
+                })
+            }else{
+                _me.props.dispatch({
+                    type: 'list_FETCH_FAILURE',
+                    payload: {
+                        msg: 'Fetch list data fail...'
+                    }
+                })
+            }
+        })
+
         // Analytics - gtags
         // gtag('config', 'UA-???????', {
         //     'page_path': '/priceless-culture/list'
@@ -30,7 +53,7 @@ class NewsList extends React.Component {
         return (
             <div className={_s('list-box')}>
                 <div className={_s('list-wrapper')}>
-                    
+                    {this.props.list.msg}
                 </div>
             </div>
         );
@@ -40,4 +63,8 @@ NewsList.defaultProps = {
     centerImgs: []
 }
 
-export default NewsList;
+const mapStateToProps = state => ({
+    list: state.list
+})
+
+export default withRouter(connect(mapStateToProps)(NewsList))

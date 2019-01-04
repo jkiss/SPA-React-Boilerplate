@@ -10,7 +10,9 @@ import { combineReducers } from 'redux'
 
 // reducers
 import home from 'Home/reducer'
+import list from 'NewsList/reducer'
 
 export default combineReducers({
-    home
+    home,
+    list
 })

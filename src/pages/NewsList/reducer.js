@@ -10,24 +10,24 @@
  * reducers below /home domain(include it's components)
  */
 
-function home(state = {
+function list(state = {
     isFetching: true,
-    msg: '',
+    msg: 'Loading',
     items: []
 }, action) {
     switch(action.type){
-        case 'home_FETCH_START':
+        case 'list_FETCH_START':
             return Object.assign({}, state, {
                 isFetching: true
             })
 
-        case 'home_FETCH_FAILURE':
+        case 'list_FETCH_FAILURE':
             return Object.assign({}, state, {
                 isFetching: false,
                 msg: action.payload.msg
             })
 
-        case 'home_FETCH_SUCCESS':
+        case 'list_FETCH_SUCCESS':
             return Object.assign({}, state, {
                 isFetching: false,
                 msg: action.payload.msg,
@@ -39,4 +39,4 @@ function home(state = {
     }
 }
 
-export default home
+export default list
