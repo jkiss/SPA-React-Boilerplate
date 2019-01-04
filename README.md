@@ -36,7 +36,7 @@ webpack v4.28.2
 5. HTTP request using async/await;
 6. Arrangement files according to DDD(Domain-Driven Design): all module files used under a URL will be stored in the same folder;
 7. Bundled by webpack 4;
-8. Support ES6 and ES7 through Babel;
+8. Support ES6 and ES7;
 
 ### :anchor: File Structure:
 
