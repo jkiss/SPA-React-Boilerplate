@@ -81,17 +81,19 @@ webpack v4.28.2
 │   │
 │   ├── NewsList  // NewsList React component match https://example.com/list
 │   │   ├── res/        // resource folder(img etc.)
+│   │   ├── api.js
+│   │   ├── reducer.js 
 │   │   ├── css.styl 
 │   │   └── index.js
 │   │
-│   └── Home    // Home React component match https://example.com/home
+│   └── Home      // Home React component match https://example.com/home
 │       ├── Component1  // component1 only used by Home component
 │       │   ├── index.js
 │       │   └── css.styl
 │       ├── res/
 │       │   └── ajax-loader.gif
 │       ├── api.js      // ajax url using async/await
-│       ├── reducer.js  // every domain has only one reducer 
+│       ├── reducer.js  // every domain has only one reducer, define state and action
 │       ├── css.styl    // main css
 │       └── index.js    // Home compoent entry
 │
@@ -100,7 +102,7 @@ webpack v4.28.2
 │
 ├── app.js       // application entry
 ├── reducers.js  // assemble all components' reducer
-├── theme.styl   // some css variable throughout other components
+└── theme.styl   // some css variable throughout other components
 
 
 /** 

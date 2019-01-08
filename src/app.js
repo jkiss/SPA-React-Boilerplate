@@ -32,9 +32,11 @@ import CONFIG from '../config'
 import Header from 'com/Header'
 import Footer from 'com/Footer'
 import Siderbar from 'com/Sidebar'
+import Page404 from '404'
+
+// pages
 import Home from 'Home'
 import NewsList from 'NewsList'
-import Page404 from '404'
 
 // Style
 import 'roboto-light.styl'

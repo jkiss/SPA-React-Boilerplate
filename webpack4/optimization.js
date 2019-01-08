@@ -20,7 +20,7 @@ module.exports = {
             vendors: {
                 test: /[\\/]node_modules[\\/]/,
                 priority: -10,
-                name: 'vendor'
+                name: false // 'vendor'
             },
             default: {
                 minChunks: 2,
@@ -30,6 +30,6 @@ module.exports = {
         }
     },
     runtimeChunk: {
-        name: 'manifest'
+        name: 'runtime'
     }
 }
