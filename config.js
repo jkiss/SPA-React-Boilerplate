@@ -11,6 +11,8 @@ module.exports = {
     public_path: '/home'
     ,port: 8686
     ,plugin_url: ''
+    ,ga_id: ''
+    ,fb_id: ''
 
     // HTML meta data
     ,page:{

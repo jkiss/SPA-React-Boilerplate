@@ -29,7 +29,9 @@ module.exports = {
             filename: 'index.html',
             template: path.resolve(__dirname, '../src/htmlTemplates/app.ejs'),
             page: config.page,
-            public_path: config.public_path
+            public_path: config.public_path,
+            ga_id: config.ga_id,
+            fb_id: config.fb_id
         })
 
         // Automatically loaded modules when identifier is used as free variable in a module
