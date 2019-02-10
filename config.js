@@ -13,6 +13,7 @@ module.exports = {
     ,plugin_url: ''
     ,ga_id: ''
     ,fb_id: ''
+    ,analyse_bundle: true
 
     // HTML meta data
     ,page:{
