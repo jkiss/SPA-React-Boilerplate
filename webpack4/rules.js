@@ -20,7 +20,8 @@ module.exports = {
                 presets: [
                     ['@babel/preset-env', {
                         'targets': 'last 2 versions, ie >= 9',
-                        'useBuiltIns': 'entry'
+                        'useBuiltIns': 'entry',
+                        'corejs': 2
                     }], 
                     '@babel/preset-react'
                 ],
