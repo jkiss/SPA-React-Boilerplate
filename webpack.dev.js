@@ -132,6 +132,7 @@ module.exports = {
         warnings: true,
         // our additional options
         moduleTrace: true,
-        errorDetails: true
+        errorDetails: true,
+        builtAt: true
     }
 };
