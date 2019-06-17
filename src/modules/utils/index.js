@@ -23,6 +23,28 @@ class Util {
         return false
     }
 
+    isWeiXin(){
+        let ua = window.navigator.userAgent.toLowerCase()
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    isNarrowScreen(){
+        let _me = this
+        /**
+         * devices similar to mobile
+         */
+        let screen_ratio = window.innerWidth / window.innerHeight
+        if(screen_ratio > 1){
+            return false
+        }else{
+            return true
+        }
+    }
+
     CR(){
         console.log('%c' + 'Mr.B', 'font-family: "courier new"; color:#b7a457; font-size:24px;')
     }
@@ -138,6 +160,17 @@ class Util {
      */
     getBGImage(e){
         return $(e).css('backgroundImage').match(/http.+[jpg|png|svg|jpeg]/i)[0]
+    }
+
+    /**
+     * getBoundingClientRect
+     */
+    getBCR(ele, type) {
+        if (type !== undefined) {
+            return ele.getBoundingClientRect()[type];
+        } else {
+            return ele.getBoundingClientRect();
+        }
     }
 }
 
