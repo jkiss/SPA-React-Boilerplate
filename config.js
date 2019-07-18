@@ -28,7 +28,7 @@ module.exports = {
     // routes
     ,route:{
         home:{
-            path: '/home'
+            path: ['/home', '/']
         },
         list: {
             path: '/home/list'
