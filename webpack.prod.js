@@ -25,7 +25,7 @@ const OPTIMIZITION = require('./webpack4/optimization')
 /**
  * Config
  */
-const PUBLIC_PATH = config.public_path
+const PUBLIC_PATH = config.public_path_prod
 
 let NEW_PLUGINS
 if(config.analyse_bundle){

@@ -24,7 +24,7 @@ const OPTIMIZITION = require('./webpack4/optimization')
  * Config
  */
 const PORT = config.port
-const PUBLIC_PATH = config.public_path
+const PUBLIC_PATH = config.public_path_dev
 
 /**
  * Dev plugins

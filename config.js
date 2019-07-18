@@ -8,7 +8,8 @@
 
 module.exports = {
     // Deploy
-    public_path: '/home'
+    public_path_dev: '/home'
+    ,public_path_prod: '/my-web'
     ,port: 8686
     ,plugin_url: ''
     ,ga_id: ''
