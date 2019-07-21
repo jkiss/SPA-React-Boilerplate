@@ -25,7 +25,14 @@ const OPTIMIZITION = require('./webpack4/optimization')
 /**
  * Config
  */
-const PUBLIC_PATH = config.public_path
+const PUBLIC_PATH = config.public_path_prod
+
+let NEW_PLUGINS
+if(config.analyse_bundle){
+    NEW_PLUGINS = PLUGINS.concat([ new BundleAnalyzerPlugin() ])
+}else{
+    NEW_PLUGINS = PLUGINS
+}
 
 module.exports = {
     mode: 'production',
@@ -117,9 +124,7 @@ module.exports = {
         ])
     },
 
-    plugins: PLUGINS.concat([
-        new BundleAnalyzerPlugin()
-    ]),
+    plugins: NEW_PLUGINS,
 
     resolve: RESOLVE
 };

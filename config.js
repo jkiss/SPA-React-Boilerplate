@@ -8,35 +8,46 @@
 
 module.exports = {
     // Deploy
-    public_path: '/home'
+    public_path_dev: '/home'
+    ,public_path_prod: '/my-web'
     ,port: 8686
+    ,plugin_url: ''
+    ,ga_id: ''
+    ,fb_id: ''
+    ,analyse_bundle: true
 
     // HTML meta data
     ,page:{
         title: 'NULL'
         ,desc: ''
         ,image: ''
-        ,url: 'https://url/article/new-era-for-china.html'
+        ,url: 'https://url/article/index.html'
         ,thumb: 'https://url/article/images/thumb.jpg'
     }
 
     // routes
     ,route:{
         home:{
-            path: '/home'
+            path: ['/home', '/']
         },
         list: {
             path: '/home/list'
+        },
+        nav1:{
+            path: '/nav1'
+        },
+        nav2:{
+            path: '/nav2'
         }
     }
 
     // request url
     ,io:{
         home: {
-            news_json: 'https://op.cgtn.com/data/2018/priceless-culture/feiyi_list.json'
+            news_json: 'https://url/home_data.json'
         },
         list: {
-            all_news_list: 'https://op.cgtn.com/data/2018/priceless-culture/feiyi_list.json'
+            all_news_list: 'https://url/list_data.json'
         }
     }
 }

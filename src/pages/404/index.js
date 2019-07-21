@@ -12,7 +12,7 @@ let _s = classNames.bind(styles)
 
 const Page404 = (props) => {
     return ( 
-        <div>
+        <div className={_s('box')}>
             404
         </div>
     );

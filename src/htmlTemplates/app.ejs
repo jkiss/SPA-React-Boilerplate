@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- Start Share Facebook -->
-    <meta property="fb:app_id" content="" />
+    <meta property="fb:app_id" content="<%= htmlWebpackPlugin.options.fb_id %>" />
     <meta property="og:type" content="article" />
     <meta property="og:rich_attachment" content="true" />
     <meta property="og:url" content="<%= htmlWebpackPlugin.options.page.url %>" />
@@ -41,13 +41,13 @@
 
     <!-- GA -->
     <!-- Global site tag (gtag.js) - Google Analytics
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-???????"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= htmlWebpackPlugin.options.ga_id %>"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        // gtag('config', 'UA-???????');
+        // gtag('config', '<%= htmlWebpackPlugin.options.ga_id %>');
     </script>
     End: GA -->
 

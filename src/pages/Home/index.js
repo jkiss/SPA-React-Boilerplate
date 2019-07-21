@@ -36,13 +36,13 @@ class Home extends Component{
             type: 'START_FETCH'
         })
 
-        reqHomeList().then((data)=>{
-            if(data.status == 200){
+        reqHomeList().then((ajax)=>{
+            if(ajax.status == 200){
                 _me.props.dispatch({
                     type: 'FETCH_SUCCESS',
                     payload: {
                         msg: 'Fetch home data success!',
-                        data: data.data
+                        data: ajax.data
                     }
                 })
             }else{

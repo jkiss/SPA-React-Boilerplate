@@ -20,14 +20,16 @@ module.exports = {
                 presets: [
                     ['@babel/preset-env', {
                         'targets': 'last 2 versions, ie >= 9',
-                        'useBuiltIns': 'entry'
+                        'useBuiltIns': 'entry',
+                        'corejs': 2
                     }], 
                     '@babel/preset-react'
                 ],
                 plugins: [
                     '@babel/plugin-transform-runtime',
                     ['import', { 
-                        'libraryName': 'antd'
+                        libraryName: 'antd',
+                        style: 'css'
                     }]
                 ],
                 cacheDirectory: true
