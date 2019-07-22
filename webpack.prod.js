@@ -53,7 +53,7 @@ module.exports = {
     module: {
         rules: RULES.concat([
             {
-                test: /\.(gif|png|jpg|mp3|mp4|obj|mtl|glb)\??.*$/,
+                test: /\.(gif|png|jpg|mp3|mp4|obj|mtl|glb)$/,
                 use: [
                     {
                         loader: 'url-loader',
@@ -66,7 +66,7 @@ module.exports = {
             },
     
             {
-                test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
+                test: /\.(woff|woff2|svg|eot|ttf)$/,
                 use: [
                     {
                         loader: 'url-loader',
