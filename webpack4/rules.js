@@ -64,6 +64,20 @@ module.exports = {
                     }
                 }
             ]
+        },
+
+        {
+            // 匹配 *.worker.js
+            test: /\.worker\.js$/,
+            use: {
+                loader: 'worker-loader',
+                options: {
+                    // name: '[name]:[hash:8].js',
+                    inline: true
+                    // fallback: false
+                    // publicPath: '/scripts/workers/'
+                }
+            }
         }
     ]
 }
