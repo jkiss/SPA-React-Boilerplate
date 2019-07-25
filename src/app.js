@@ -27,6 +27,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Util from 'utils'
 import { setWxShare } from 'utils/wxShare'
 import CONFIG from '../config'
+import log from 'utils/log'
 
 // coms
 import Header from 'com/Header'
@@ -67,6 +68,8 @@ class App extends React.Component {
 
     componentDidMount() {
         Util.CR()
+
+        log.warn('PRODUCTION', PRODUCTION)
 
         /**
          * wxShare

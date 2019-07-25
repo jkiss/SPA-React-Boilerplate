@@ -119,6 +119,10 @@ module.exports = {
 
     plugins: PLUGINS.concat([
         new webpack.HotModuleReplacementPlugin()
+
+        ,new webpack.DefinePlugin({
+            PRODUCTION: JSON.stringify(false)
+        })
     ]),
 
     resolve: RESOLVE,
