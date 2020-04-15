@@ -23,6 +23,7 @@ const store = createStore(
 )
 
 // core
+import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Util from 'utils'
 import { setWxShare } from 'utils/wxShare'
@@ -36,8 +37,10 @@ import Siderbar from 'com/Sidebar'
 import Page404 from '404'
 
 // pages
-import Home from 'Home'
-import NewsList from 'NewsList'
+// import Home from 'Home'
+// import NewsList from 'NewsList'
+const Home = lazy(()=>import('Home') )
+const NewsList = lazy(()=>import('NewsList'))
 
 // Style
 import 'roboto-light.styl'
@@ -98,9 +101,10 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <Router>
-                    <React.Fragment>
-                        <Header/>
-                        
+                    
+                    <Header/>
+                    
+                    <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
                             {routes.map((route, index) => (
                             <Route
@@ -113,11 +117,12 @@ class App extends React.Component {
 
                             <Route component={Page404} />
                         </Switch>
-                        
-                        <Footer/>
+                    </Suspense>
+                    
+                    <Footer/>
 
-                        <Siderbar/>
-                    </React.Fragment>
+                    <Siderbar/>
+                    
                 </Router>
             </Provider>
         )
