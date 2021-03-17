@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><%= htmlWebpackPlugin.options.page.title || 'NULL' %></title>
+    <title><%= htmlWebpackPlugin.options.page.title || 'mrb-fe.dev' %></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="Cache-Control" content="no-transform">
@@ -31,33 +31,29 @@
     <!-- End Share Twitter -->
 
     <!-- Icon -->
-    <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.public_path %>/favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.public_path %>/favicon.png">
+    <link rel="shortcut icon" href="<%= htmlWebpackPlugin.files.publicPath %>/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>/favicon.png">
 
     <!-- CSS -->
-    <% for (var css in htmlWebpackPlugin.files.css) { %>
-        <link href="<%= htmlWebpackPlugin.files.css[css] %>?v=<%= version%>" rel="stylesheet">
-    <% } %>
+    <%= htmlWebpackPlugin.tags.headTags %>
 
     <!-- GA -->
-    <!-- Global site tag (gtag.js) - Google Analytics
     <script async src="https://www.googletagmanager.com/gtag/js?id=<%= htmlWebpackPlugin.options.ga_id %>"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
-        // gtag('config', '<%= htmlWebpackPlugin.options.ga_id %>');
     </script>
-    End: GA -->
 
-    <script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script>
+        if(window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'){
+            document.write('<script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"><\/script>')
+        }
+    </script>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app" style="position: relative; overflow: hidden;"></div>
 
-    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-        <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>?v=<%= version%>"></script>
-    <% } %>
+    <%= htmlWebpackPlugin.tags.bodyTags %>
 </body>
 </html>

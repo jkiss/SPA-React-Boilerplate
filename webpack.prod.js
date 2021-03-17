@@ -2,7 +2,7 @@
  * @Author: Nokey
  * @Date: 2017-02-24 14:16:31
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-12-27 14:25:07
+ * @Last Modified time: 2021-03-17 19:22:25
  */
 'use strict';
 
@@ -16,11 +16,11 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 /**
  * Common config that can be used in dev & prod environment
  */
-const ENTRY = require('./webpack4/entry')
-const RULES = require('./webpack4/rules').rules
-const PLUGINS = require('./webpack4/plugins').plugins
-const RESOLVE = require('./webpack4/resolve')
-const OPTIMIZITION = require('./webpack4/optimization')
+const ENTRY = require('./webpack/entry')
+const RULES = require('./webpack/rules').rules
+const PLUGINS = require('./webpack/plugins').plugins
+const RESOLVE = require('./webpack/resolve')
+const OPTIMIZITION = require('./webpack/optimization')
 
 /**
  * Config
@@ -52,31 +52,6 @@ module.exports = {
 
     module: {
         rules: RULES.concat([
-            {
-                test: /\.(gif|png|jpg|mp3|mp4|obj|mtl|glb)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 1024,
-                            name: '/media/[hash].[ext]'
-                        }
-                    }
-                ]
-            },
-    
-            {
-                test: /\.(woff|woff2|svg|eot|ttf)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 1024,
-                            name: '/fonts/[name].[ext]'
-                        }
-                    }
-                ]
-            },
 
             {
                 test: /\.css$/,
@@ -107,16 +82,20 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
-                            localIdentName: '[hash:base64:12]'
+                            modules: {
+                                auto: /\.styl$/i,
+                                localIdentName: '[hash:base64:6]'
+                            }
                         }
                     },
                     {
                         loader: 'stylus-loader',
                         options: {
-                            use: [
-                                poststylus([ 'autoprefixer', 'rucksack-css' ])
-                            ]
+                            stylusOptions: {
+                                use: [
+                                    poststylus([ 'autoprefixer', 'rucksack-css' ])
+                                ]
+                            }
                         }
                     }
                 ]
@@ -130,5 +109,22 @@ module.exports = {
         })
     ]),
 
-    resolve: RESOLVE
+    resolve: RESOLVE,
+
+    stats: {
+        // copied from `'minimal'`
+        all: false,
+        modules: true,
+        // maxModules: 0,
+        errors: true,
+        warnings: true,
+        // our additional options
+        moduleTrace: true,
+        errorDetails: true,
+        builtAt: true,
+        // 添加资源信息
+        assets: true,
+        performance: true,
+        colors: true
+    }
 };

@@ -8,10 +8,10 @@
 
 module.exports = {
     // Deploy
-    public_path_dev: '/home'
+    public_path_dev: '/home/'
     ,public_path_prod: '/my-web'
     ,port: 8686
-    ,plugin_url: ''
+    ,plugin_url: '/home/vendor/'
     ,ga_id: ''
     ,fb_id: ''
     ,analyse_bundle: true

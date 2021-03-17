@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2018-12-27 14:16:11 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-12-27 14:16:56
+ * @Last Modified time: 2021-03-17 19:22:08
  */
 'use strict';
 
@@ -14,11 +14,11 @@ const poststylus = require('poststylus')
 /**
  * Common config that can be used in dev & prod environment
  */
-const ENTRY = require('./webpack4/entry')
-const RULES = require('./webpack4/rules').rules
-const PLUGINS = require('./webpack4/plugins').plugins
-const RESOLVE = require('./webpack4/resolve')
-const OPTIMIZITION = require('./webpack4/optimization')
+const ENTRY = require('./webpack/entry')
+const RULES = require('./webpack/rules').rules
+const PLUGINS = require('./webpack/plugins').plugins
+const RESOLVE = require('./webpack/resolve')
+const OPTIMIZITION = require('./webpack/optimization')
 
 /**
  * Config
@@ -37,12 +37,18 @@ module.exports = {
     optimization: OPTIMIZITION,
 
     // dectool should be false if env is production!!!
-    devtool: 'cheap-eval-source-map', // false || 'cheap-eval-source-map'
+    devtool: 'eval-cheap-source-map', // false || 'cheap-eval-source-map'
 
     // devServer
     devServer: {
+        host: '127.0.0.1',
         port: PORT,
-        contentBase: path.join(__dirname, './build'),
+        static: [{
+            directory: path.join(__dirname, './build')
+        }],
+        dev: {
+            publicPath: PUBLIC_PATH
+        },
         hot: true,
         historyApiFallback: {
             index: PUBLIC_PATH+'/index.html'
@@ -59,31 +65,6 @@ module.exports = {
 
     module: {
         rules: RULES.concat([
-            {
-                test: /\.(gif|png|jpg|mp3|mp4|obj|mtl|glb)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options:{
-                            limit: 1024,
-                            name: 'media/[hash].[ext]'
-                        }
-                    }
-                ]
-            },
-    
-            {
-                test: /\.(woff|woff2|svg|eot|ttf)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options:{
-                            limit: 1024,
-                            name: 'fonts/[name].[ext]'
-                        }
-                    }
-                ]
-            },
 
             {
                 test: /\.css$/,
@@ -100,16 +81,20 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
-                            localIdentName: '[local]__[hash:base64:10]'
+                            modules: {
+                                auto: /\.styl$/i,
+                                localIdentName: '[local]__[hash:base64:4]'
+                            }
                         }
                     },
                     {
                         loader: 'stylus-loader',
                         options: {
-                            use: [
-                                poststylus([ 'autoprefixer', 'rucksack-css' ])
-                            ]
+                            stylusOptions: {
+                                use: [
+                                    poststylus([ 'autoprefixer', 'rucksack-css' ])
+                                ]
+                            }
                         }
                     }
                 ]
@@ -131,7 +116,7 @@ module.exports = {
         // copied from `'minimal'`
         all: false,
         modules: true,
-        maxModules: 0,
+        // maxModules: 0,
         errors: true,
         warnings: true,
         // our additional options

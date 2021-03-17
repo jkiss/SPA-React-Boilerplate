@@ -16,14 +16,16 @@ module.exports = {
                 path.resolve(__dirname, '../src')
             ],
             loader: 'babel-loader',
-            query: {
+            options: {
                 presets: [
                     ['@babel/preset-env', {
-                        'targets': 'last 2 versions, ie >= 9',
-                        'useBuiltIns': 'entry',
-                        'corejs': 2
+                        'targets': 'last 2 versions, ie >= 11',
+                        'useBuiltIns': 'usage',
+                        'corejs': 3
                     }], 
-                    '@babel/preset-react'
+                    ["@babel/preset-react", {
+                        "runtime": "automatic"
+                    }]
                 ],
                 plugins: [
                     '@babel/plugin-transform-runtime',
@@ -35,21 +37,6 @@ module.exports = {
                 ],
                 cacheDirectory: true
             }
-        },
-
-        {
-            // 将jQuery导出到全局变量，来支持依赖它的插件
-            test: require.resolve('jquery'),
-            use: [
-                {
-                    loader: 'expose-loader',
-                    query: 'jQuery'
-                },
-                {
-                    loader: 'expose-loader',
-                    query: '$'
-                }
-            ]
         },
 
         {
@@ -73,10 +60,36 @@ module.exports = {
                 loader: 'worker-loader',
                 options: {
                     // name: '[name]:[hash:8].js',
-                    inline: true
+                    inline: 'fallback'
                     // fallback: false
                     // publicPath: '/scripts/workers/'
                 }
+            }
+        },
+
+        {
+            test: /\.(gif|png|jpg|mp3|mp4|obj|mtl|glb)$/,
+            type: 'asset',
+            parser: {
+                dataUrlCondition: {
+                    maxSize: 4 * 1024 // 4kb
+                }
+            },
+            generator: {
+                filename: 'media/[contenthash][ext]'
+            }
+        },
+
+        {
+            test: /\.(woff|woff2|svg|eot|ttf)$/,
+            type: 'asset',
+            parser: {
+                dataUrlCondition: {
+                    maxSize: 4 * 1024 // 4kb
+                }
+            },
+            generator: {
+                filename: 'fonts/[contenthash][ext]'
             }
         }
     ]

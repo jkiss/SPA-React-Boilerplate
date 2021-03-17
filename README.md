@@ -11,21 +11,16 @@ npm run dev     // Develop command
 npm run build   // Build command
 
 // Build environment
-node v10.14.0
-webpack v4.28.2
+node v14.16.0
+webpack v5.26.2
+@Babel v7.13.10
 ```
 
 ### :space_invader: Code Base:
 
-1. React v16.7.0
-2. Redux v4.0.1
-3. React-Router v4.2.2
-4. stylus v0.54.5
-
-### :wrench: Build Environment:
-
-1. Webpack v4.28.2
-2. @Babel v7.2.2
+1. React v17.0.1
+2. Redux v4.0.5
+3. React-Router-Dom v5.2.0
 
 ### :doughnut: Features:
 
@@ -43,12 +38,12 @@ webpack v4.28.2
 ```javascript
 ./src
 ├── fonts
-│   └── roboto-thin.styl
+│   └── fonts.styl
 │
 ├── htmlTemplates
 │   └── app.ejs
 │
-├── modules     // common module include js, css, component etc.
+├── common     // common module include js, css, component etc.
 │   ├── com
 │   │   ├── Header
 │   │   │   ├── index.js
@@ -68,7 +63,6 @@ webpack v4.28.2
 │   │   ├── 1.jpg
 │   │
 │   ├── style
-│   │   ├── app.styl
 │   │   └── reset.styl
 │   └── utils
 │       ├── wxShare.js
@@ -101,8 +95,7 @@ webpack v4.28.2
 │   └── SplitText.min.js
 │
 ├── app.js       // application entry
-├── reducers.js  // assemble all components' reducer
-└── theme.styl   // some css variable throughout other components
+└── reducers.js  // assemble all components' reducer
 
 
 /** 

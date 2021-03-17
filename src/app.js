@@ -2,15 +2,17 @@
  * @Author: Nokey 
  * @Date: 2018-03-30 16:16:43 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2019-01-03 10:25:29
+ * @Last Modified time: 2021-03-17 19:57:32
  */
 'use strict';
 
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 
 // polyfill
+import 'core-js/es/map'
+import 'core-js/es/set'
 import 'raf/polyfill'
-import '@babel/polyfill'
+import 'whatwg-fetch'
 
 // Redux
 import appReducers from './reducers'
@@ -43,9 +45,8 @@ const Home = lazy(()=>import('Home') )
 const NewsList = lazy(()=>import('NewsList'))
 
 // Style
-import 'roboto-light.styl'
-import 'styl/reset.styl'
-import 'styl/app.styl'
+import 'fonts.styl'
+import 'style/reset.styl'
 
 // Routes
 const routes = [

@@ -1,10 +1,9 @@
-/*
+/* 
  * @Author: Nokey 
- * @Date: 2018-09-25 10:22:47 
- * @Last Modified by: Mr.B
- * @Last Modified time: 2018-09-25 10:27:01
+ * @Date: 2021-03-17 20:18:00 
+ * @Last Modified by:   Mr.B 
+ * @Last Modified time: 2021-03-17 20:18:00 
  */
-'use strict'; 
 
 import classNames from 'classnames/bind'
 import styles from './css'

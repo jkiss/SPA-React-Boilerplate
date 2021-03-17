@@ -10,7 +10,7 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
-const copyWebpackPlugin = require('copy-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     plugins: [
@@ -19,7 +19,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: 'bundle/[name].css'
+            filename: 'bundle/[contenthash].css'
             // chunkFilename: 'bundle/[name].css'
         })
 
@@ -28,8 +28,9 @@ module.exports = {
             inject: false,
             filename: 'index.html',
             template: path.resolve(__dirname, '../src/htmlTemplates/app.ejs'),
+            // chunks: ['manifest', 'vendor', e.entry.split('/').join('.')],
+
             page: config.page,
-            public_path: config.public_path,
             ga_id: config.ga_id,
             fb_id: config.fb_id
         })
@@ -47,19 +48,24 @@ module.exports = {
         })
 
         // Copy static files to 'config.output' folder
-        ,new copyWebpackPlugin([
-            {
-                from: 'favicon.png',
-                to: ''
-            },{
-                from: '**/*.*',
-                to: 'vendor',
-                context: 'src/vendor/copy/'
-            },{
-                from: '**/*.*',
-                to: 'media',
-                context: 'src/modules/res/copy/'
-            }
-        ])
+        ,new CopyPlugin({
+            patterns: [
+                {
+                    from: 'favicon.png',
+                    to: ''
+                },{
+                    from: 'copy/',
+                    to: 'vendor',
+                    context: 'src/vendor/'
+                },{
+                    from: 'copy/',
+                    to: 'media',
+                    context: 'src/common/assets/',
+                    globOptions: {
+                        ignore: ['**/.DS_Store']
+                    }
+                }
+            ]
+        })
     ]
 }

@@ -13,14 +13,15 @@ module.exports = {
         /**
          * Plugins( PS: some plugins may be installed by npm, please check package.json!!! )
          */
+        Base: path.resolve(__dirname, '../'),
         'split-text': path.resolve(vendor_path, 'SplitText.min.js')
     },
 
-    extensions: ['.js', '.styl', '.css', '.jpg', '.gif', '.png', 'mp3', 'mp4', 'obj', 'mtl', 'glb'],
+    extensions: ['.js', '.styl', '.css', '.jpg', '.gif', '.png', '.json', '.csv', 'mp3', 'mp4', 'obj', 'mtl', 'glb'],
 
     modules: [
         path.resolve('./src/fonts'),
-        path.resolve('./src/modules'),
+        path.resolve('./src/common'),
         path.resolve('./src/pages'),
         path.resolve('./node_modules')
     ]
