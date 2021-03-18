@@ -2,14 +2,14 @@
  * @Author: Nokey 
  * @Date: 2018-03-29 17:59:16 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-12-27 17:13:48
+ * @Last Modified time: 2021-03-18 19:56:02
  */
 'use strict'; 
 
 import React, { Component } from 'react'
-import CONFIG from '../../../config'
+import CONFIG from 'Base/config'
 import { Link, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import { reqHomeList } from './api'
 
 // com
@@ -19,6 +19,18 @@ import Component1 from './Component1'
 import classNames from 'classnames/bind'
 import styles from './css'
 let _s = classNames.bind(styles)
+
+const Home = (props) => {
+    const home = useSelector(state => state.home)
+
+    return ( 
+        <section>
+
+        </section>
+    );
+}
+ 
+export default Home;
 
 class Home extends Component{
     componentDidMount() {
