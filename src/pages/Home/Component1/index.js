@@ -2,48 +2,25 @@
  * @Author: Nokey 
  * @Date: 2018-09-27 14:49:29 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-09-27 17:23:58
+ * @Last Modified time: 2021-03-19 17:56:28
  */
 'use strict';
 
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 // style
 import classNames from 'classnames/bind'
 import styles from './css'
 let _s = classNames.bind(styles)
 
-// res
+const Component1 = (props) => {
+    return ( 
+        <section>
 
-class Component1 extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            items: []
-        }
-    }
-
-    componentDidMount() {
-        console.log('com1', this.props)
-    }
-
-    render() {
-        return (
-            <div id="component1" className={_s('box')}>
-                { this.props.title }
-            </div>
-        );
-    }
+        </section>
+    );
 }
-Component1.defaultProps = {
-    title: 'Component1 content'
-}
-
-const mapStateToProps = state => ({
-    home: state.home
-})
-
-export default withRouter(connect(mapStateToProps)(Component1))
+ 
+export default Component1;

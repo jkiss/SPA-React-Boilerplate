@@ -1,12 +1,10 @@
-/*
+/* 
  * @Author: Nokey 
- * @Date: 2018-09-13 16:20:19 
+ * @Date: 2021-03-19 14:57:38 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2021-03-17 20:05:23
+ * @Last Modified time: 2021-03-19 20:03:35
  */
-'use strict'; 
 
-import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import config from 'Base/config'
 
@@ -18,7 +16,7 @@ let _s = classNames.bind(styles)
 const Header = (props) => {
     return ( 
         <header className={_s('header')}>
-            <Link to={config.route.home.path}>
+            <Link to={`${config.route.home.path}?v=222`}>
                 <span className={_s('link')}>Home</span>
             </Link>
             <Link to={config.route.list.path}>

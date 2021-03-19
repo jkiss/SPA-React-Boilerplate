@@ -7,6 +7,10 @@
 
 import config from 'Base/config'
 
+function mrb() {
+    console.log('%c' + 'Powered by Mr.B', 'font-family: "courier new"; color:#000; font-size:24px; font-weight:bold; text-shadow:0 0 6px #22ff22; padding: 0 10px;');
+}
+
 function isIE(){
     let ua = window.navigator.userAgent,
         e = ua.indexOf("MSIE ")
@@ -185,6 +189,7 @@ function queryUrl(url) {
 }
 
 export {
+    mrb,
     isIE,
     isMobile,
     isWeiXin,

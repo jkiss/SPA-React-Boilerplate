@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2018-12-27 14:16:11 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2021-03-17 19:22:08
+ * @Last Modified time: 2021-03-19 19:32:02
  */
 'use strict';
 
@@ -51,7 +51,7 @@ module.exports = {
         },
         hot: true,
         historyApiFallback: {
-            index: PUBLIC_PATH+'/index.html'
+            index: PUBLIC_PATH
         }
     },
 

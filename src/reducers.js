@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2018-09-25 09:59:25 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2021-03-17 20:07:19
+ * @Last Modified time: 2021-03-19 19:07:08
  */
 'use strict'; 
 
@@ -11,6 +11,9 @@ import { combineReducers } from 'redux'
 // reducers
 import home from 'Home/reducer'
 import list from 'NewsList/reducer'
+
+import store from 'store'
+const cache_lang = store.get('myLang')
 
 function app(state = {
     lang: cache_lang || 'en',  // 'en' or 'zh'

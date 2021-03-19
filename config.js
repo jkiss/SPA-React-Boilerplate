@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2018-03-16 10:40:52 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2018-12-27 16:50:57
+ * @Last Modified time: 2021-03-19 20:12:19
  */
 'use strict'; 
 
@@ -28,16 +28,16 @@ module.exports = {
     // routes
     ,route:{
         home:{
-            path: ['/home', '/']
+            path: 'home/:str'
         },
         list: {
-            path: '/home/list'
+            path: 'list'
         },
         nav1:{
-            path: '/nav1'
+            path: './nav1'
         },
         nav2:{
-            path: '/nav2'
+            path: './nav2'
         }
     }
 

@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2017-10-11 16:05:30 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2020-10-19 14:30:00
+ * @Last Modified time: 2021-03-19 15:01:26
  */
 'use strict';
 
@@ -57,6 +57,10 @@ const Loading = (props) => {
             LOADING...{progress}%
         </div>
     )
+}
+
+Loading.propTypes = {
+    manifest: PropTypes.array.isRequired
 }
 
 export default Loading;

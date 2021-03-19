@@ -2,7 +2,7 @@
  * @Author: Nokey 
  * @Date: 2018-03-30 16:16:43 
  * @Last Modified by: Mr.B
- * @Last Modified time: 2021-03-17 19:57:32
+ * @Last Modified time: 2021-03-19 19:37:42
  */
 'use strict';
 
@@ -26,10 +26,10 @@ const store = createStore(
 
 // core
 import React, { Suspense, lazy } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Util from 'utils'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { mrb } from 'utils'
 import { setWxShare } from 'utils/wxShare'
-import CONFIG from '../config'
+import config from 'Base/config'
 import log from 'utils/log'
 
 // coms
@@ -48,19 +48,6 @@ const NewsList = lazy(()=>import('NewsList'))
 import 'fonts.styl'
 import 'style/reset.styl'
 
-// Routes
-const routes = [
-    {
-        path: CONFIG.route.home.path,
-        exact: true,
-        main: () => <Home />
-    },{
-        path: CONFIG.route.list.path,
-        exact: false,
-        main: () => <NewsList />
-    }
-]
-
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -71,7 +58,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        Util.CR()
+        mrb()
 
         log.warn('PRODUCTION', PRODUCTION)
 
@@ -106,18 +93,16 @@ class App extends React.Component {
                     <Header/>
                     
                     <Suspense fallback={<div>Loading...</div>}>
-                        <Switch>
-                            {routes.map((route, index) => (
+                        <Routes>
                             <Route
-                                key={index}
-                                path={route.path}
-                                exact={route.exact}
-                                component={route.main}
-                            />
-                            ))}
+                                path={config.route.home.path}
+                                element={<Home />} />
+                            <Route
+                                path={config.route.list.path}
+                                element={<NewsList />} />
 
-                            <Route component={Page404} />
-                        </Switch>
+                            <Route path="*" element={<Page404/>} />
+                        </Routes>
                     </Suspense>
                     
                     <Footer/>
