@@ -27,6 +27,7 @@ const Home = (props) => {
     const dispatch = useDispatch()
 
     log.info(str, v.get('v'))
+    log.info('home', home)
 
     useEffect(()=>{
         let handleResize = ()=>{
