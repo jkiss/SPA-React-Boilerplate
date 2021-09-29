@@ -6,12 +6,14 @@
  */
 'use strict'; 
 
+const pub_path = '/'
+
 module.exports = {
     // Deploy
-    public_path_dev: '/home/'
-    ,public_path_prod: '/my-web'
+    public_path_dev: pub_path
+    ,public_path_prod: '/project1' // public下面的资源目录
     ,port: 8686
-    ,plugin_url: '/home/vendor/'
+    ,plugin_url: `${pub_path}vendor/`
     ,ga_id: ''
     ,fb_id: ''
     ,analyse_bundle: true
@@ -28,10 +30,14 @@ module.exports = {
     // routes
     ,route:{
         home:{
-            path: 'home/:str'
+            path: `${pub_path}home/:str`,
+            me: `${pub_path}user/me`,
+            login: `${pub_path}user/login`,
+            profile: `${pub_path}user/profile`,
+            setting: `${pub_path}user/setting`,
         },
         list: {
-            path: 'list'
+            path: `${pub_path}list`
         },
         nav1:{
             path: './nav1'
