@@ -47,7 +47,8 @@ module.exports = {
     output: {
         path: path.join(__dirname, "build"),
         filename: "bundle/[name].js",
-        publicPath: PUBLIC_PATH
+        publicPath: PUBLIC_PATH,
+        clean: true
     },
 
     module: {
